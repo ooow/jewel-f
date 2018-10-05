@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
+import logo from './assets/svg/logo/logo.svg';
 import './App.scss';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Jewel</h1>
+      <div className="centered">
+        <header className="header">
+          <img src={logo} className="logo" alt="logo" />
+          <h1 className="title">Welcome to Jewel</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+        <p className="intro">
+          To get started, edit <code>src/app/App.js</code> and save to reload.
         </p>
       </div>
     );

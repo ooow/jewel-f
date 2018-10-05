@@ -1,0 +1,54 @@
+/*
+* General stylesheet file with all project fonts.
+*/
+
+/* TODO: Remove useless font faces before release */
+
+/* @Google Font K2D */
+@font-face {
+  font-family: K2D;
+  font-weight: 100;
+  src: url('app/assets/fonts/K2D/Thin.ttf');
+}
+
+@font-face {
+  font-family: K2D;
+  font-weight: 200;
+  src: url('app/assets/fonts/K2D/ExtraLight.ttf');
+}
+
+@font-face {
+  font-family: K2D;
+  font-weight: 300;
+  src: url('app/assets/fonts/K2D/Light.ttf');
+}
+
+@font-face {
+  font-family: K2D;
+  font-weight: 400;
+  src: url('app/assets/fonts/K2D/Regular.ttf');
+}
+
+@font-face {
+  font-family: K2D;
+  font-weight: 500;
+  src: url('app/assets/fonts/K2D/Medium.ttf');
+}
+
+@font-face {
+  font-family: K2D;
+  font-weight: 600;
+  src: url('app/assets/fonts/K2D/SemiBold.ttf');
+}
+
+@font-face {
+  font-family: K2D;
+  font-weight: 700;
+  src: url('app/assets/fonts/K2D/Bold.ttf');
+}
+
+@font-face {
+  font-family: K2D;
+  font-weight: 800;
+  src: url('app/assets/fonts/K2D/ExtraBold.ttf');
+}
