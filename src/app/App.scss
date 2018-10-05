@@ -1,25 +1,29 @@
-.App {
-  text-align: center;
-}
+@import '../common/colors';
 
-.App-logo {
+.logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
 
-.App-header {
+.header {
   background-color: #222;
+  color: $white;
   height: 150px;
   padding: 20px;
-  color: white;
 }
 
-.App-title {
+.title {
   font-size: 1.5em;
 }
 
-.App-intro {
-  font-size: large;
+.intro {
+  color: $white;
+
+  font: {
+    family: K2D, sans-serif;
+    weight: 100;
+    size: 14px;
+  }
 }
 
 @keyframes App-logo-spin {
