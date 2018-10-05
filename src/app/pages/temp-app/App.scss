@@ -1,9 +1,4 @@
-@import '../common/colors';
-
-.logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
+@import '../../../common/colors';
 
 .header {
   background-color: #222;
@@ -23,15 +18,5 @@
     family: K2D, sans-serif;
     weight: 100;
     size: 14px;
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
   }
 }
