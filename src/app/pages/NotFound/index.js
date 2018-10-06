@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 const REDIRECT_DELAY = 3000;
 
 /**
- * Component Index shows a page with 404 error message and
+ * Component NotFound shows a page with 404 error message and
  * redirect to the main page.
  */
-export default class Index extends Component {
+class NotFound extends Component {
   static propTypes = {
     history: PropTypes.object.isRequired,
   };
@@ -38,3 +38,5 @@ export default class Index extends Component {
     );
   }
 }
+
+export default NotFound;
