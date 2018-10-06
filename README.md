@@ -4,11 +4,11 @@
 
 ## Development server
 ### Node
-```bash
+```shell
 npm install
 npm start
 ```
 ### Docker
-```bash
+```shell
 docker run -ti -p 3000:3000 -v /Users/nikitabelonogov/Documents/Own/jewel-f:/workspace node:8-alpine sh -c 'cd /workspace && npm install && npm start'
 ```
