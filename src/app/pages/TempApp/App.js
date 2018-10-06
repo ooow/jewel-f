@@ -17,6 +17,8 @@ class App extends Component {
         </section>
         <footer>
           <p className='text-muted'>Bootstrap 4</p>
+          <p className='text-muted'>Routing</p>
+          <p className='text-muted'>Redux</p>
         </footer>
       </div>
     );
