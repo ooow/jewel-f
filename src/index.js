@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Router from './app/configs/router/Router';
 import registerServiceWorker from './registerServiceWorker';
+import 'bootstrap/scss/bootstrap.scss';
 import './index.scss';
 
 class Index extends Component {

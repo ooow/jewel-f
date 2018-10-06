@@ -1,8 +1,6 @@
 /* eslint-disable react/forbid-prop-types,react/destructuring-assignment */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Logo from '../../components/logo/Logo';
-import './NotFound.scss';
 
 const REDIRECT_DELAY = 3000;
 
@@ -23,14 +21,18 @@ class NotFound extends Component {
 
   render() {
     return (
-      <div className='not-found-container'>
-        <div className='not-found-logo'>
-          <Logo />
-        </div>
-        <h3 className='redirect-text'>
-          404! Ups! This page not found! You will redirect to the Jewel.io in a
-          few sec.
-        </h3>
+      <div className='text-center p-5'>
+        <p className='display-1 font-weight-bold'>
+          4
+          <span role='img' aria-label='face-screaming-in-fear'>
+            😱
+          </span>
+          4
+        </p>
+        <h1>Oops! This page not found!</h1>
+        <p className='text-muted'>
+          You will be redirect to the <a href='/'>home page</a> in a few secs.
+        </p>
         {this.redirect()}
       </div>
     );

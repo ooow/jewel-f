@@ -1,15 +1,6 @@
 @import 'common/colors';
 @import 'common/fonts';
 
-body {
-  background-color: $black;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  -webkit-font-smoothing: antialiased;
-  -webkit-overflow-scrolling: touch;
-}
-
 h1,
 h2,
 h3,
@@ -20,19 +11,4 @@ h6 {
     family: K2D;
     weight: 500;
   }
-}
-
-a {
-  color: $gray;
-  text-decoration: none;
-
-  &:hover,
-  &:focus {
-    outline: 0;
-    text-decoration: underline;
-  }
-}
-
-.centered {
-  text-align: center;
 }
