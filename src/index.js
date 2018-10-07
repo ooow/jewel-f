@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Router from './app/configs/router/Router';
+import { Provider } from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
+import Router from './app/router';
+import store from './app/redux/store';
 import 'bootstrap/scss/bootstrap.scss';
 import './index.scss';
 
 class Index extends Component {
   render() {
-    return <Router />;
+    return (
+      <Provider store={store}>
+        <Router />
+      </Provider>
+    );
   }
 }
 

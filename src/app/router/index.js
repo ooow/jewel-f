@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import App from '../../pages/temp-app/App';
-import NotFound from '../../pages/NotFound';
+import App from '../pages/TempApp/App';
+import NotFound from '../pages/NotFound/index';
 
 /**
  * Main project routing configuration.
