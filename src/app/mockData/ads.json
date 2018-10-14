@@ -1,0 +1,38 @@
+[
+  {
+    "id": 123,
+    "title": "Facility Manager",
+    "photoUrl": "looowkfoew.com",
+    "description": "Such a good work",
+    "createdAt": 12345834231234,
+    "isActive": true,
+    "compensatory": {
+    },
+    "contacts": {
+    },
+    "location": {
+    },
+    "requirements": {
+    },
+    "settings": {
+    }
+  },
+  {
+    "id": 143,
+    "title": "Facility Manager",
+    "photoUrl": "looowkfoew.com",
+    "description": "Such a good work",
+    "createdAt": 12345834231234,
+    "isActive": true,
+    "compensatory": {
+    },
+    "contacts": {
+    },
+    "location": {
+    },
+    "requirements": {
+    },
+    "settings": {
+    }
+  }
+]
