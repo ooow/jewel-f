@@ -13,7 +13,7 @@ export default class Ad {
     description: PropTypes.string,
     createdAt: PropTypes.number,
     isActive: PropTypes.bool,
-    compensator: PropTypes.instanceOf(Compensatory),
+    compensatory: PropTypes.instanceOf(Compensatory),
     contacts: PropTypes.instanceOf(Contacts),
     location: PropTypes.instanceOf(Location),
     requirements: PropTypes.instanceOf(Requirements),
