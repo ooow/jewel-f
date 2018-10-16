@@ -2,10 +2,12 @@
   "extends": "airbnb",
   "parser": "babel-eslint",
   "rules": {
-    "react/prefer-stateless-function": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-noninteractive-element-interactions": 0,
+    "no-console": 1,
     "react/jsx-filename-extension": 0,
     "react/jsx-one-expression-per-line": 0,
-    "no-console": 1,
+    "react/prefer-stateless-function": 0,
     "jsx-quotes": [
       "error",
       "prefer-single"

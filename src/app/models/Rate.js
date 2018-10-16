@@ -18,10 +18,24 @@ export default class Rate {
   }
 
   toString() {
-    return `fixedRate: ${this.fixedRate} 
-    minRate: ${this.minRate} 
-    maxRate: ${this.maxRate} 
-    isContractual: ${this.isContractual} 
-    currency: ${this.currency}`;
+    if (this.isContractual) {
+      return '';
+    }
+
+    if (this.fixedRate && this.fixedRate.length > 0) {
+      return `${this.fixedRate}${this.currency}`;
+    }
+
+    return `${this.minRate}-${this.maxRate}${this.currency}`;
+  }
+
+  static jsonToModel(jsonObject) {
+    return new Rate(
+      jsonObject.fixedRate,
+      jsonObject.minRate,
+      jsonObject.maxRate,
+      jsonObject.isContractual,
+      jsonObject.currency,
+    );
   }
 }

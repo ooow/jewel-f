@@ -1,16 +1,19 @@
 [
   {
     "id": 123,
-    "title": "Facility Manager",
-    "photoUrl": "looowkfoew.com",
+    "title": "Slack Manager",
+    "imageUrl": "https://cdn4.buysellads.net/uu/1/21673/1539380045-Slack-pink_logo.png",
     "description": "Such a good work",
-    "createdAt": 12345834231234,
+    "createdAt": 1539822965554,
     "isActive": true,
     "rate": {
+      "isContractual": true
     },
     "contacts": {
     },
     "location": {
+      "country": "UK",
+      "city": "London"
     },
     "requirements": {
     },
@@ -19,16 +22,43 @@
   },
   {
     "id": 143,
-    "title": "Facility Manager",
-    "photoUrl": "looowkfoew.com",
-    "description": "Such a good work",
-    "createdAt": 12345834231234,
+    "title": "Owl manager",
+    "imageUrl": "https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/242ce817-97a3-48fe-9acd-b1bf97930b01/09-posterization-opt.jpg",
+    "description": "Hey it's so nice description",
+    "createdAt": 1539822965522,
     "isActive": true,
     "rate": {
+      "fixedRate": "2000",
+      "currency": "$"
     },
     "contacts": {
     },
     "location": {
+      "country": "USA",
+      "city": "New York"
+    },
+    "requirements": {
+    },
+    "settings": {
+    }
+  },
+  {
+    "id": 543,
+    "title": "Some work",
+    "imageUrl": "https://wallpaperbrowse.com/media/images/3848765-wallpaper-images-download.jpg",
+    "description": "MowMowMow PewPewPew",
+    "createdAt": 1539822961222,
+    "isActive": true,
+    "rate": {
+      "minRate": "20",
+      "maxRate": "100",
+      "currency": "€"
+    },
+    "contacts": {
+    },
+    "location": {
+      "country": "Germany",
+      "city": "Berlin"
     },
     "requirements": {
     },
