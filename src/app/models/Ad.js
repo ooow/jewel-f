@@ -3,7 +3,7 @@ import Compensatory from './Compensatory';
 import Contacts from './Contacts';
 import Location from './Location';
 import Requirements from './Requirements';
-import Settings from './Settings';
+import Settings from './AdSettings';
 
 export default class Ad {
   static propTypes = {

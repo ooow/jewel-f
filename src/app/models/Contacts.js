@@ -2,26 +2,26 @@ import PropTypes from 'prop-types';
 
 export default class Contacts {
   static propTypes = {
-    fixedRate: PropTypes.string,
-    minRate: PropTypes.string,
-    maxRate: PropTypes.string,
-    isContractual: PropTypes.bool,
-    currency: PropTypes.string,
+    phone: PropTypes.string,
+    person: PropTypes.string,
+    userId: PropTypes.number,
+    companyId: PropTypes.number,
+    email: PropTypes.string,
   };
 
-  constructor(fixedRate, minRate, maxRate, isContractual, currency) {
-    this.fixedRate = fixedRate;
-    this.minRate = minRate;
-    this.maxRate = maxRate;
-    this.isContractual = isContractual;
-    this.currency = currency;
+  constructor(phone, person, userId, companyId, email) {
+    this.phone = phone;
+    this.person = person;
+    this.userId = userId;
+    this.companyId = companyId;
+    this.email = email;
   }
 
   toString() {
-    return `fixedRate: ${this.fixedRate} 
-    minRate: ${this.minRate} 
-    maxRate: ${this.maxRate} 
-    isContractual: ${this.isContractual} 
-    currency: ${this.currency}`;
+    return `phone: ${this.phone} 
+    person: ${this.person} 
+    userId: ${this.userId} 
+    companyId: ${this.companyId} 
+    email: ${this.email}`;
   }
 }
