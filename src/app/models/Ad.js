@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Compensatory from './Compensatory';
+import Rate from './Rate';
 import Contacts from './Contacts';
 import Location from './Location';
 import Requirements from './Requirements';
@@ -13,7 +13,7 @@ export default class Ad {
     description: PropTypes.string,
     createdAt: PropTypes.number,
     isActive: PropTypes.bool,
-    compensatory: PropTypes.instanceOf(Compensatory),
+    rate: PropTypes.instanceOf(Rate),
     contacts: PropTypes.instanceOf(Contacts),
     location: PropTypes.instanceOf(Location),
     requirements: PropTypes.instanceOf(Requirements),
@@ -27,7 +27,7 @@ export default class Ad {
     description,
     createdAt,
     isActive,
-    compensatory,
+    rate,
     contacts,
     location,
     requirements,
@@ -39,7 +39,7 @@ export default class Ad {
     this.description = description;
     this.createdAt = createdAt;
     this.isActive = isActive;
-    this.compensatory = compensatory;
+    this.rate = rate;
     this.contacts = contacts;
     this.location = location;
     this.requirements = requirements;
@@ -63,7 +63,7 @@ export default class Ad {
       jsonObject.description,
       jsonObject.createdAt,
       jsonObject.isActive,
-      jsonObject.compensatory,
+      jsonObject.rate,
       jsonObject.contacts,
       jsonObject.location,
       jsonObject.requirements,

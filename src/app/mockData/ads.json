@@ -6,7 +6,7 @@
     "description": "Such a good work",
     "createdAt": 12345834231234,
     "isActive": true,
-    "compensatory": {
+    "rate": {
     },
     "contacts": {
     },
@@ -24,7 +24,7 @@
     "description": "Such a good work",
     "createdAt": 12345834231234,
     "isActive": true,
-    "compensatory": {
+    "rate": {
     },
     "contacts": {
     },

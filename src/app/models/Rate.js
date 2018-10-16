@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export default class Compensatory {
+export default class Rate {
   static propTypes = {
     fixedRate: PropTypes.string,
     minRate: PropTypes.string,
