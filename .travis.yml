@@ -3,4 +3,16 @@ node_js: 8.1.3
 branches:
   only:
     - master
-script: npm run test
+script:
+  - npm run test
+  - npm run build
+deploy:
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  skip_cleanup: true
+  bucket: $AWS_S3_BUCKET_NAME
+  local-dir: build
+  acl: public_read
+  on:
+    branch: master
