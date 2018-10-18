@@ -47,7 +47,7 @@ class AdCard extends Component {
     return (
       <div className='card' style={cardStyle}>
         <div className='card-header'>
-          <Link to={`/${ad.id}`}>
+          <Link to={`/ad/${ad.id}`}>
             <img className='card-image' alt={ad.title} src={ad.imageUrl} />
           </Link>
         </div>
