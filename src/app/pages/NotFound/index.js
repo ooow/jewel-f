@@ -1,6 +1,7 @@
 /* eslint-disable react/forbid-prop-types,react/destructuring-assignment */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './NotFound.scss';
 
 const REDIRECT_DELAY = 3000;
 
@@ -21,8 +22,8 @@ class NotFound extends Component {
 
   render() {
     return (
-      <div className='text-center p-5'>
-        <p className='display-1 font-weight-bold'>
+      <div className='not-found-container'>
+        <p className='not-fount-text'>
           4
           <span role='img' aria-label='face-screaming-in-fear'>
             😱
@@ -30,7 +31,7 @@ class NotFound extends Component {
           4
         </p>
         <h1>Oops! This page not found!</h1>
-        <p className='text-muted'>
+        <p>
           You will be redirect to the <a href='/'>home page</a> in a few secs.
         </p>
         {this.redirect()}

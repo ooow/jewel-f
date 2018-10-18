@@ -9,7 +9,7 @@ export default class Ad {
   static propTypes = {
     id: PropTypes.number,
     title: PropTypes.string,
-    photoUrl: PropTypes.string,
+    imageUrl: PropTypes.string,
     description: PropTypes.string,
     createdAt: PropTypes.number,
     isActive: PropTypes.bool,
@@ -23,7 +23,7 @@ export default class Ad {
   constructor(
     id,
     title,
-    photoUrl,
+    imageUrl,
     description,
     createdAt,
     isActive,
@@ -35,7 +35,7 @@ export default class Ad {
   ) {
     this.id = id;
     this.title = title;
-    this.photoUrl = photoUrl;
+    this.imageUrl = imageUrl;
     this.description = description;
     this.createdAt = createdAt;
     this.isActive = isActive;
@@ -49,7 +49,7 @@ export default class Ad {
   toString() {
     return `id: ${this.id} 
     title: ${this.title} 
-    photoUrl: ${this.photoUrl} 
+    imageUrl: ${this.imageUrl} 
     description: ${this.description} 
     createdAt: ${this.createdAt} 
     isActive: ${this.isActive}`;
@@ -59,13 +59,13 @@ export default class Ad {
     return new Ad(
       jsonObject.id,
       jsonObject.title,
-      jsonObject.photoUrl,
+      jsonObject.imageUrl,
       jsonObject.description,
       jsonObject.createdAt,
       jsonObject.isActive,
-      jsonObject.rate,
+      Rate.jsonToModel(jsonObject.rate),
       jsonObject.contacts,
-      jsonObject.location,
+      Location.jsonToModel(jsonObject.location),
       jsonObject.requirements,
       jsonObject.settings,
     );

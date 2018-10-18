@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
 import Router from './app/router';
 import store from './app/redux/store';
-import 'bootstrap/scss/bootstrap.scss';
 import './index.scss';
 
 class Index extends Component {

@@ -1,33 +1,30 @@
-/* eslint-disable react/destructuring-assignment,react/require-default-props */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Ad from '../../models/Ad';
 import Logo from '../../components/logo/Logo';
+import AdCard from '../../components/AdCard';
+import './App.scss';
 
 /* It's a temp component, will be removed soon */
 class App extends Component {
   static propTypes = {
-    ads: PropTypes.arrayOf(PropTypes.instanceOf(Ad)),
+    ads: PropTypes.arrayOf(PropTypes.instanceOf(Ad)).isRequired,
   };
 
   renderAds() {
-    return this.props.ads.map(a => <p key={a.id}>{a.toString()} </p>);
+    const { ads } = this.props;
+    return ads.map(a => <AdCard ad={a} key={a.id} />);
   }
 
   render() {
     return (
-      <div className='text-center'>
-        <header>
+      <div className='container'>
+        <header className='container'>
           <Logo />
           <h1>Welcome to Jewel</h1>
         </header>
-        <section>{this.renderAds()}</section>
-        <footer>
-          <p className='text-muted'>Bootstrap 4</p>
-          <p className='text-muted'>Routing</p>
-          <p className='text-muted'>Redux</p>
-        </footer>
+        <section className='container-horizontal'>{this.renderAds()}</section>
       </div>
     );
   }
