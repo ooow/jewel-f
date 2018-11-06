@@ -4,10 +4,9 @@ import { connect } from 'react-redux';
 import Ad from '../../models/Ad';
 import Logo from '../../components/logo/Logo';
 import AdCard from '../../components/AdCard';
-import './App.scss';
 
 /* It's a temp component, will be removed soon */
-class App extends Component {
+class Home extends Component {
   static propTypes = {
     ads: PropTypes.arrayOf(PropTypes.instanceOf(Ad)).isRequired,
   };
@@ -19,12 +18,18 @@ class App extends Component {
 
   render() {
     return (
-      <div className='container'>
+      <div>
         <header className='container'>
-          <Logo />
-          <h1>Welcome to Jewel</h1>
+          <center>
+            <Logo />
+            <h1>Welcome to Jewel</h1>
+          </center>
         </header>
-        <section className='container-horizontal'>{this.renderAds()}</section>
+        <section className='container'>
+          <div className='d-flex flex-wrap justify-content-center justify-content-sm-between'>
+            {this.renderAds()}
+          </div>
+        </section>
       </div>
     );
   }
@@ -34,4 +39,4 @@ function mapStateToProps(state) {
   return { ads: state.ads };
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(Home);
