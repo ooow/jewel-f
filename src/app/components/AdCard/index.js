@@ -36,8 +36,8 @@ class AdCard extends Component {
       <div className='card shadow m-1' style={cardStyle}>
         <Link
           to={`/ad/${ad.id}`}
-          className='card-img-top image-fill'
-          style={{ height: '100%', backgroundImage: `url("${ad.imageUrl}")`, }}
+          className='card-img-top image-fill h-100'
+          style={{ backgroundImage: `url("${ad.imageUrl}")`, }}
         />
         <div className='card-body p-1'>
           <div className='d-flex flex-wrap justify-content-between mb-2 font-weight-bold'>
