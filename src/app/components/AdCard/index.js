@@ -6,9 +6,6 @@ import Ad from '../../models/Ad';
 import './AdCard.scss';
 
 const DEFAULT_CARD_SIZE = 250;
-const BIG_TEXT_RATIO = 12;
-const MEDIUM_TEXT_RATIO = 16;
-const SMALL_TEXT_RATIO = 20;
 
 /**
  * Ad Card is a view component which displays ad like a card. Internal text
@@ -34,39 +31,23 @@ class AdCard extends Component {
       height: size,
       width: size,
     };
-    const titleStyle = {
-      fontSize: size / BIG_TEXT_RATIO,
-    };
-    const titleMiddleStyle = {
-      fontSize: size / MEDIUM_TEXT_RATIO,
-    };
-    const titleFooterStyle = {
-      fontSize: size / SMALL_TEXT_RATIO,
-    };
 
     return (
-      <div className='card' style={cardStyle}>
-        <div className='card-header'>
-          <Link to={`/ad/${ad.id}`}>
-            <img className='card-image' alt={ad.title} src={ad.imageUrl} />
-          </Link>
-        </div>
-        <div className='card-footer'>
-          <div className='card-footer-content'>
-            <div className='card-title-header' style={titleStyle}>
-              <p>{ad.title}</p>
-              <p>{ad.rate.toString()}</p>
-            </div>
-            <div className='card-title-body' style={titleMiddleStyle}>
-              <p>Added by</p>
-              <a className='primary-color' href='/'>
-                {author}
-              </a>
-              <p>in {ad.location.city}</p>
-            </div>
-            <p className='card-title-footer' style={titleFooterStyle}>
-              {createdAt}
-            </p>
+      <div className='card shadow m-1' style={cardStyle}>
+        <Link
+          to={`/ad/${ad.id}`}
+          className='card-img-top image-fill'
+          style={{ height: '100%', backgroundImage: `url("${ad.imageUrl}")`, }}
+        />
+        <div className='card-body p-1'>
+          <div className='d-flex flex-wrap justify-content-between mb-2 font-weight-bold'>
+            <span>{ad.title}</span>
+            <span>{ad.rate.toString()}</span>
+          </div>
+          <div className='d-flex flex-wrap justify-content-between small text-muted'>
+            <a href='/'>{author}</a>
+            <span>{ad.location.city}</span>
+            <span>{createdAt}</span>
           </div>
         </div>
       </div>
