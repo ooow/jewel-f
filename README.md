@@ -1,4 +1,4 @@
-# Jewel Front-end [![Build Status](https://travis-ci.com/ooow/jewel-f.svg?token=9FACddwEUzmJsZDJqVky&branch=master)](https://travis-ci.com/ooow/jewel-f)
+# Jewel Front-end [![Build Status](https://travis-ci.com/ooow/jewel-f.svg?token=9FACddwEUzmJsZDJqVky&branch=master)](https://travis-ci.com/ooow/jewel-f) [![Website http://jewel-frontend.s3-website-eu-west-1.amazonaws.com](https://img.shields.io/website-up-down-green-red/http/jewel-frontend.s3-website-eu-west-1.amazonaws.com.svg)](http://jewel-frontend.s3-website-eu-west-1.amazonaws.com)
 
 # Deployment
 
