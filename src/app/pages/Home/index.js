@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Ad from '../../models/Ad';
-import Logo from '../../components/Logo';
+import Logo from '../../components/Logo/index';
 import AdCard from '../../components/AdCard';
 
 /* It's a temp component, will be removed soon */
@@ -21,9 +21,9 @@ class Home extends Component {
       <div>
         <header className='container'>
           <center>
-            <Logo size='100px' />
+            <Logo style={{ height: '100px', width: '100px' }} />
             <h1>
-              Welcome to <Logo style={{ background: 'red', }} />
+              Welcome to <Logo style={{ background: 'red' }} />
               Jewel
             </h1>
             <span>
