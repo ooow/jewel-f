@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Ad from '../../models/Ad';
-import Logo from '../../components/logo/Logo';
+import Logo from '../../components/Logo';
 import AdCard from '../../components/AdCard';
 
 /* It's a temp component, will be removed soon */
@@ -21,8 +21,16 @@ class Home extends Component {
       <div>
         <header className='container'>
           <center>
-            <Logo />
-            <h1>Welcome to Jewel</h1>
+            <Logo size='100px' />
+            <h1>
+              Welcome to <Logo />
+              Jewel
+            </h1>
+            <span>
+              <Logo />
+              Advert dashboard
+              <Logo />
+            </span>
           </center>
         </header>
         <section className='container'>
