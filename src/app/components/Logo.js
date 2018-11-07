@@ -6,6 +6,8 @@ const DEFAULT_LOGO_SIZE = '1em';
 
 /**
  * A view component which displays a project logotype.
+ * Properties:
+ *   size - any valid for html size value
  */
 class Logo extends Component {
   static propTypes = {
@@ -17,13 +19,20 @@ class Logo extends Component {
   };
 
   render() {
-    const { size } = this.props;
-    const style = {
-      height: size,
-      width: size,
+    const { size, style, ...other } = this.props;
+    const logoStyle = {
+      height: other.height || size,
+      width: other.width || size,
     };
 
-    return <img style={style} src={LogoSVG} alt='Jewel Logotype' />;
+    return (
+      <img
+        style={{ ...style, ...logoStyle }}
+        src={LogoSVG}
+        alt='Jewel Logotype'
+        {...other}
+      />
+    );
   }
 }
 

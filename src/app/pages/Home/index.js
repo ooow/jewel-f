@@ -23,7 +23,7 @@ class Home extends Component {
           <center>
             <Logo size='100px' />
             <h1>
-              Welcome to <Logo />
+              Welcome to <Logo style={{ background: 'red', }} />
               Jewel
             </h1>
             <span>
