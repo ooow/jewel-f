@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Ad from '../../models/Ad';
-import Logo from '../../components/Logo/index';
+import Logo from '../../components/Logo';
 import AdCard from '../../components/AdCard';
 
 /* It's a temp component, will be removed soon */
