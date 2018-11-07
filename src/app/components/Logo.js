@@ -6,11 +6,10 @@ const DEFAULT_LOGO_SIZE = '1em';
 
 /**
  * A view component which displays a project logotype.
- * Properties:
- *   size - any valid for html size value
  */
 class Logo extends Component {
   static propTypes = {
+    /* any valid for html size value. */
     size: PropTypes.string,
   };
 
