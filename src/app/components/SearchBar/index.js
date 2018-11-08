@@ -6,10 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
  */
 class SearchBar extends Component {
   render() {
-    const { ...other } = this.props;
+    const { ...props } = this.props;
 
     return (
-      <div {...other}>
+      <div {...props}>
         <div className='input-group'>
           <div className='input-group-prepend'>
             <button className='btn btn-outline-border' type='button'>
