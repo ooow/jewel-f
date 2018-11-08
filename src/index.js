@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import registerServiceWorker from './registerServiceWorker';
 import Router from './app/router';
 import store from './app/redux/store';
@@ -15,6 +17,8 @@ class Index extends Component {
     );
   }
 }
+
+library.add(faSearch);
 
 ReactDOM.render(<Index />, document.getElementById('root'));
 registerServiceWorker();
