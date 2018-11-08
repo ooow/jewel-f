@@ -2,12 +2,10 @@
  * General stylesheet file with all project colors.
  */
 
-$black: #000;
-$white: #fff;
-$gray: #666;
-$gold: #c4987a;
-$border: rgba(0, 0, 0, 0.2);
-$background: #fff;
-$primary: #009ab0;
-$primaryText: #2f2f2f;
-$decoration: #d1c7be;
+$border-color: #adb5bd;
+$input-border-color: $border-color;
+
+$theme-colors: (
+  'primary': #009ab0,
+  'border': $border-color,
+);
