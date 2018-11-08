@@ -17,9 +17,9 @@ class SearchBar extends Component {
             </button>
           </div>
           <input
-            type='text'
             className='form-control'
             placeholder='type to search...'
+            type='text'
           />
         </div>
       </div>
