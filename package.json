@@ -6,9 +6,11 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "prettier:fix": "prettier --config .prettierrc.yaml --write 'src/**/*.{js,jsx,scss,css}'",
-    "stylelint:fix": "stylelint --fix 'src/**/*.{scss,css}'",
-    "eslint:fix": "eslint 'src/**/*.{js,jsx}' --fix"
+    "prettier:fix": "prettier --config .prettierrc.yaml --write 'src/**/*.{js,jsx,scss}'",
+    "lint:scss:fix": "stylelint --fix '**/*.{scss,css}'",
+    "lint:scss:show": "stylelint '**/*.{scss,css}'",
+    "eslint:fix": "eslint 'src/**/*.js' --fix",
+    "eslint:show": "eslint 'src/**/*.js'"
   },
   "dependencies": {
     "autoprefixer": "7.1.6",
@@ -111,14 +113,10 @@
     ]
   },
   "lint-staged": {
-    "src/**/*.{js,jsx}": [
+    "src/**/*.{js,jsx,json,scss,css}": [
       "npm run prettier:fix",
+      "npm run lint:scss:fix",
       "npm run eslint:fix",
-      "git add"
-    ],
-    "src/**/*.{scss,css}":[
-      "npm run prettier:fix",
-      "npm run stylelint:fix",
       "git add"
     ]
   },
