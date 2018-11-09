@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export default class AdSettings {
+export default class AdvertSettings {
   static propTypes = {
     isRemoved: PropTypes.bool,
     autoDeactivateAt: PropTypes.number,
