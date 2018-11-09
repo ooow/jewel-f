@@ -8,12 +8,12 @@ import NavBar from '../../components/NavBar';
 /* It's a temp component, will be removed soon */
 class Home extends Component {
   static propTypes = {
-    ads: PropTypes.arrayOf(PropTypes.instanceOf(Ad)).isRequired,
+    adverts: PropTypes.arrayOf(PropTypes.instanceOf(Ad)).isRequired,
   };
 
   renderAds() {
-    const { ads } = this.props;
-    return ads.map(a => <AdCard ad={a} key={a.id} />);
+    const { adverts } = this.props;
+    return adverts.map(a => <AdCard ad={a} key={a.id} />);
   }
 
   render() {
@@ -31,7 +31,7 @@ class Home extends Component {
 }
 
 function mapStateToProps(state) {
-  return { ads: state.ads };
+  return { adverts: state.adverts.items };
 }
 
 export default connect(mapStateToProps)(Home);
