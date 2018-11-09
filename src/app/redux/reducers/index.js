@@ -1,11 +1,10 @@
 import { combineReducers } from 'redux';
-
-import ads from './ads';
+import adverts from './advert';
 
 /**
  * The project reducers.
  */
 export default combineReducers({
-  ads,
+  adverts,
   /* Here will be other reducers */
 });
