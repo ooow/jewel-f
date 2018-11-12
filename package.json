@@ -6,8 +6,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "stylelint:fix": "stylelint --fix",
-    "eslint:fix": "eslint --fix"
+    "stylelint:fix": "stylelint 'src/**/*.scss' --fix",
+    "eslint:fix": "eslint 'src/**/*.js' --fix"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
