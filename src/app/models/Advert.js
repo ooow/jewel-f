@@ -3,9 +3,9 @@ import Rate from './Rate';
 import Contacts from './Contacts';
 import Location from './Location';
 import Requirements from './Requirements';
-import Settings from './AdSettings';
+import Settings from './AdvertSettings';
 
-export default class Ad {
+export default class Advert {
   static propTypes = {
     id: PropTypes.number,
     title: PropTypes.string,
@@ -56,7 +56,7 @@ export default class Ad {
   }
 
   static jsonToModel(jsonObject) {
-    return new Ad(
+    return new Advert(
       jsonObject.id,
       jsonObject.title,
       jsonObject.imageUrl,
