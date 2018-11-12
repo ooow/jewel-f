@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Logo from '../Logo';
 import SearchBar from '../SearchBar';
+import SignInButton from '../SignInButton';
 import LanguageSelector from '../LanguageSelector';
 import Language from '../../models/Language';
 import mockJsonArrayOfLanguages from '../../mockData/languages.json';
@@ -32,9 +33,7 @@ class NavBar extends Component {
             selected={language}
             languages={this.mockLanguages}
           />
-          <div className='p-1 mx-1 my-1 my-sm-0 bg-white rounded border text-nowrap text-muted'>
-            Sign in stub
-          </div>
+          <SignInButton />
         </div>
       </nav>
     );

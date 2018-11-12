@@ -67,7 +67,7 @@ class LanguageSelector extends Component {
   /** Renders available for choosing language. */
   renderAvailableLanguage(language) {
     const { iconSize } = this.props;
-    const flagSrc = require(`../.././assets/images/flags/${language.id}.svg`);
+    const flagSrc = require(`../../assets/images/flags/${language.id}.svg`);
 
     return (
       <div

@@ -1,7 +1,7 @@
 /* eslint-disable react/forbid-prop-types */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import LogoSVG from '../../assets/images/Logo.svg';
+import LogoSVG from '../../assets/images/logo/Jewel.svg';
 
 const DEFAULT_LOGO_STYLE = {
   height: '1em',
