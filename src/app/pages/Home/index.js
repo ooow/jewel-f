@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Ad from '../../models/Ad';
-import AdCard from '../../components/AdCard';
+import Advert from '../../models/Advert';
+import AdvertCard from '../../components/AdvertCard';
 import NavBar from '../../components/NavBar';
 
 /* It's a temp component, will be removed soon */
 class Home extends Component {
   static propTypes = {
-    adverts: PropTypes.arrayOf(PropTypes.instanceOf(Ad)).isRequired,
+    adverts: PropTypes.arrayOf(PropTypes.instanceOf(Advert)).isRequired,
   };
 
   renderAds() {
     const { adverts } = this.props;
-    return adverts.map(a => <AdCard ad={a} key={a.id} />);
+    return adverts.map(a => <AdvertCard ad={a} key={a.id} />);
   }
 
   render() {
