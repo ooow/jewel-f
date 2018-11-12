@@ -13,7 +13,7 @@ class Home extends Component {
 
   renderAds() {
     const { adverts } = this.props;
-    return adverts.map(a => <AdvertCard ad={a} key={a.id} />);
+    return adverts.map(a => <AdvertCard advert={a} key={a.id} />);
   }
 
   render() {
