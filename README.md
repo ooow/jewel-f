@@ -10,5 +10,5 @@ npm start
 ```
 ### Docker
 ```shell
-docker run -ti -p 3000:3000 -v /Users/nikitabelonogov/Documents/Own/jewel-f:/workspace node:8-alpine sh -c 'cd /workspace && npm install && npm start'
+docker run -ti -p 3000:3000 -v `pwd`:/workspace node:node:8.12.0-alpine sh -c 'cd /workspace && npm install && npm start'
 ```
