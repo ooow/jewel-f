@@ -8,6 +8,8 @@ const PROD_HOST = 'http://host';
 export default class EnvService {
   /**
    * Checks if is production environment.
+   * @return {boolean}
+   * @public
    */
   static isProdEnv() {
     return process.env.NODE_ENV === 'production';
@@ -15,6 +17,8 @@ export default class EnvService {
 
   /**
    * Returns host address for current environment.
+   * @return {string}
+   * @public
    */
   static getCurrentHost() {
     return this.isProdEnv() ? PROD_HOST : LOCAL_HOST;
