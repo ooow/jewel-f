@@ -1,6 +1,5 @@
-const LOCAL_HOST = 'http://localhost:8080';
-// TODO: Write real backend host address.
-const PROD_HOST = 'http://host';
+const LOCAL_HOST = 'http://localhost:8080/api';
+const PROD_HOST = '/api';
 
 /**
  * Env Service provides all functions related to project environment.
