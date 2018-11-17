@@ -2,13 +2,14 @@
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import reducers from '../reducers';
+import EnvService from '../../services/EnvService';
 
 function generateStore() {
   const middleware = [thunk];
 
-  if (process.env.NODE_ENV !== 'production') {
-    /* Redux devtools is available on dev env.
-       Please add to your Crhome "Redux DevTools" extension. */
+  if (!EnvService.isProdEnv()) {
+    /** Redux devtools is available on dev env.
+     Please add to your Crhome "Redux DevTools" extension. */
     return createStore(
       reducers,
       window.__REDUX_DEVTOOLS_EXTENSION__
