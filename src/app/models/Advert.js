@@ -7,7 +7,7 @@ import Settings from './AdvertSettings';
 
 export default class Advert {
   static propTypes = {
-    id: PropTypes.number,
+    id: PropTypes.string,
     title: PropTypes.string,
     imageUrl: PropTypes.string,
     description: PropTypes.string,

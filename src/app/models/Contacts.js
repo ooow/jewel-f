@@ -4,8 +4,8 @@ export default class Contacts {
   static propTypes = {
     phone: PropTypes.string,
     person: PropTypes.string,
-    userId: PropTypes.number,
-    companyId: PropTypes.number,
+    userId: PropTypes.string,
+    companyId: PropTypes.string,
     email: PropTypes.string,
   };
 
