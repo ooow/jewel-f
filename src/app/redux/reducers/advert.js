@@ -9,7 +9,7 @@ import Advert from '../../models/Advert';
 /* Initialize state using mock data from json file */
 const initState = {
   isFetching: false,
-  items: mockJsonArrayOfAds.map(o => Advert.jsonToModel(o)),
+  items: mockJsonArrayOfAds.map(Advert.jsonToModel),
 };
 
 const adverts = (state = initState, action) => {

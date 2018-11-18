@@ -3,6 +3,7 @@ import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import reducers from '../reducers';
 import EnvService from '../../services/EnvService';
+import { fetchAdverts } from '../../services/api/AdvertService';
 
 function generateStore() {
   const middleware = [thunk];
@@ -25,5 +26,7 @@ function generateStore() {
  * The project store.
  */
 const store = generateStore();
+
+store.dispatch(fetchAdverts());
 
 export default store;

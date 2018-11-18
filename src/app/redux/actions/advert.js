@@ -6,10 +6,10 @@ export const requestAdverts = () => ({
   type: REQUEST_ADVERTS,
 });
 
-export const receiveAdverts = json => ({
+export const receiveAdverts = adverts => ({
   type: RECEIVE_ADVERTS,
-  adverts: json.data.adverts,
   receivedAt: Date.now(),
+  adverts,
 });
 
 export const failedFetchingAdverts = error => ({

@@ -6,14 +6,13 @@ import {
   requestAdverts,
 } from '../../redux/actions/advert';
 import { LOAD_ADVERTS_URL } from './ApiService';
+import Advert from '../../models/Advert';
 
 /** Fetches adverts. */
 export const fetchAdverts = () => (dispatch) => {
   dispatch(requestAdverts());
   return fetch(LOAD_ADVERTS_URL)
-    .then(
-      response => response.json(),
-      error => dispatch(failedFetchingAdverts(error)),
-    )
-    .then(json => dispatch(receiveAdverts(json)));
+    .then(response => response.json())
+    .then(adverts => dispatch(receiveAdverts(adverts.map(Advert.jsonToModel))))
+    .catch(error => dispatch(failedFetchingAdverts(error)));
 };

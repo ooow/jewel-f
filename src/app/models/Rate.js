@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 
 export default class Rate {
   static propTypes = {
-    fixedRate: PropTypes.string,
-    minRate: PropTypes.string,
-    maxRate: PropTypes.string,
-    isContractual: PropTypes.bool,
     currency: PropTypes.string,
+    fixedRate: PropTypes.number,
+    isContractual: PropTypes.bool,
+    maxRate: PropTypes.number,
+    minRate: PropTypes.number,
   };
 
   constructor(fixedRate, minRate, maxRate, isContractual, currency) {
@@ -22,7 +22,7 @@ export default class Rate {
       return '';
     }
 
-    if (this.fixedRate && this.fixedRate.length > 0) {
+    if (this.fixedRate) {
       return `${this.fixedRate}${this.currency}`;
     }
 

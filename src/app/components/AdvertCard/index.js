@@ -20,16 +20,22 @@ class AdvertCard extends Component {
     size: DEFAULT_SIZE,
   };
 
+  detectAuthor() {
+    // TODO: Replace to real company or user name.
+    return Boolean(this.advert) && this.advert.contacts.companyId
+      ? '@Company'
+      : 'User';
+  }
+
   render() {
     const { advert } = this.props;
-    const createdAt = DateService.msToViewText(advert.createdAt);
-    /* TODO: Replace to real company or user name */
-    const author = advert ? '@Company' : 'User';
     const { size } = this.props;
     const cardStyle = {
       height: size,
       width: size,
     };
+    const author = this.detectAuthor();
+    const createdAt = DateService.msToViewText(advert.createdAt);
 
     return (
       <div className='card shadow m-1' style={cardStyle}>
