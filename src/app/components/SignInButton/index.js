@@ -34,9 +34,9 @@ class SignInButton extends Component {
             <div className='modal-header'>
               <div className='modal-title'>Sign in or Sign up in Jewel</div>
               <button
-                type='button'
                 className='btn btn-link close'
                 onClick={this.toggle}
+                type='button'
               >
                 <FontAwesomeIcon icon='times' />
               </button>

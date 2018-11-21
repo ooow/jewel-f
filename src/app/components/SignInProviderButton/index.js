@@ -13,7 +13,6 @@ const PROVIDERS = {
  */
 class SignInProviderButton extends Component {
   static propTypes = {
-    // style: PropTypes.object, // Any valid for html size value.
     provider: PropTypes.oneOf(['Google', 'Facebook']).isRequired,
   };
 
@@ -21,14 +20,14 @@ class SignInProviderButton extends Component {
     const { provider } = this.props;
     return (
       <button
-        type='button'
         className='btn btn-outline-border btn-block text-left text-black-50 shadow-sm'
+        type='button'
       >
         <span className='mr-2'>
           <img
-            style={{ height: '1em', width: '1em' }}
-            src={PROVIDERS[provider]}
             alt={`${provider} Logotype`}
+            src={PROVIDERS[provider]}
+            style={{ height: '1em', width: '1em' }}
           />
         </span>
         <span>Sing in using {provider}</span>
