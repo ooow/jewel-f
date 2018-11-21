@@ -1,0 +1,17 @@
+[
+  {
+    "id": "en",
+    "title": "English",
+    "isAvailable": true
+  },
+  {
+    "id": "pl",
+    "title": "Polish",
+    "isAvailable": true
+  },
+  {
+    "id": "ru",
+    "title": "Russian",
+    "isAvailable": false
+  }
+]
