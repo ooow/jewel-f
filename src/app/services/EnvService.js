@@ -1,4 +1,4 @@
-const LOCAL_HOST = 'http://35.188.141.110:80/api';
+const LOCAL_HOST = 'http://localhost:8080/api';
 const PROD_HOST = '/api';
 
 /**
