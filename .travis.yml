@@ -1,18 +1,31 @@
 language: node_js
-node_js: 8.1.3
+node_js: 8.12.0
+sudo: true
+dist: trusty
+services:
+  - docker
+
 branches:
   only:
     - master
+
+git:
+  depth: 1
+
+env:
+  - IMAGE=frontend
+
 script:
   - npm run test
-  - npm run build
-deploy:
-  provider: s3
-  access_key_id: $AWS_ACCESS_KEY_ID
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
-  skip_cleanup: true
-  bucket: $AWS_S3_BUCKET_NAME
-  local-dir: build
-  acl: public_read
-  on:
-    branch: master
+  - docker build -t ${IMAGE} .
+
+after_script:
+  - docker login -u ${REGESTRY_USER} -p ${REGESTRY_PASSWORD} https://${REGESTRY_HOST}
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then docker tag ${IMAGE} ${REGESTRY_HOST}/${PROJECT}/${IMAGE}:${TRAVIS_PULL_REQUEST_BRANCH}; fi
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then docker push ${REGESTRY_HOST}/${PROJECT}/${IMAGE}:${TRAVIS_PULL_REQUEST_BRANCH}; fi
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then docker tag ${IMAGE} ${REGESTRY_HOST}/${PROJECT}/${IMAGE}:pr-${TRAVIS_PULL_REQUEST}; fi
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then docker push ${REGESTRY_HOST}/${PROJECT}/${IMAGE}:pr-${TRAVIS_PULL_REQUEST}; fi
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then docker tag ${IMAGE} ${REGESTRY_HOST}/${PROJECT}/${IMAGE}:${TRAVIS_COMMIT}; fi
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then docker push ${REGESTRY_HOST}/${PROJECT}/${IMAGE}:${TRAVIS_COMMIT}; fi
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then docker tag ${IMAGE} ${REGESTRY_HOST}/${PROJECT}/${IMAGE}:${TRAVIS_BRANCH}; fi
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then docker push ${REGESTRY_HOST}/${PROJECT}/${IMAGE}:${TRAVIS_BRANCH}; fi
