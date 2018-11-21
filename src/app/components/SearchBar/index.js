@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 /**
  * A view component which displays search bar.
  */
 class SearchBar extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+  };
+
+  static defaultProps = {
+    className: '',
+  };
+
   render() {
-    const { ...props } = this.props;
+    const { className } = this.props;
 
     return (
-      <div {...props}>
+      <div className={className}>
         <div className='input-group'>
           <div className='input-group-prepend'>
             <button className='btn btn-outline-border' type='button'>

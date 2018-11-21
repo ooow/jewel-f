@@ -2,6 +2,10 @@ import { CHANGE_LANGUAGE } from '../actions/language';
 import LocalStorageService from '../../services/LocalStoreService';
 import Language from '../../models/Language';
 
+/**
+ *  Tries to read language from the local store,
+ *  if not it sets default as English
+ */
 let initState;
 const storedLanguage = LocalStorageService.getLanguage();
 

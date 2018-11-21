@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Language from '../../models/Language';
+import LanguageSelector from '../LanguageSelector';
 import Logo from '../Logo';
 import SearchBar from '../SearchBar';
 import SignInButton from '../SignInButton';
-import LanguageSelector from '../LanguageSelector';
-import Language from '../../models/Language';
 import mockJsonArrayOfLanguages from '../../mockData/languages.json';
 
 /**
@@ -26,7 +26,7 @@ class NavBar extends Component {
       <nav className='navbar navbar-light bg-white border-bottom'>
         <div className='container d-flex justify-content-between flex-sm-nowrap'>
           <a className='navbar-brand mx-1 p-0 d-none d-sm-inline' href='/'>
-            <Logo style={{ height: '2em', width: '2em' }} />
+            <Logo />
           </a>
           <SearchBar className='mx-1 w-100' />
           <LanguageSelector

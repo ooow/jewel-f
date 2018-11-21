@@ -5,6 +5,9 @@ import reducers from '../reducers';
 import EnvService from '../../services/EnvService';
 import { fetchAdverts } from '../../services/api/AdvertService';
 
+/**
+ * Returns configured store for current environment.
+ */
 function generateStore() {
   const middleware = [thunk];
 
@@ -27,6 +30,7 @@ function generateStore() {
  */
 const store = generateStore();
 
+/** Tries to fetch initial adverts for displaying on home page. */
 store.dispatch(fetchAdverts());
 
 export default store;

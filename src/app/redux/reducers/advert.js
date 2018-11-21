@@ -6,7 +6,7 @@ import {
 import mockJsonArrayOfAds from '../../mockData/ads.json';
 import Advert from '../../models/Advert';
 
-/* Initialize state using mock data from json file */
+/** Initializes state using mock data from json file. */
 const initState = {
   isFetching: false,
   items: mockJsonArrayOfAds.map(Advert.jsonToModel),

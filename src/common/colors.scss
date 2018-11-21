@@ -2,10 +2,7 @@
  * General stylesheet file with all project colors.
  */
 
-$border-color: #adb5bd;
-$input-border-color: $border-color;
-
 $theme-colors: (
   'primary': #009ab0,
-  'border': $border-color,
+  'border': #adb5bd,
 );

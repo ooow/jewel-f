@@ -3,32 +3,21 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import LogoSVG from '../../assets/images/logo/Jewel.svg';
 
-const DEFAULT_LOGO_STYLE = {
-  height: '1em',
-  width: '1em',
-};
-
 /**
- * A view component which displays a project logotype.
+ * A view component which displays the project logotype.
  */
 class Logo extends Component {
   static propTypes = {
-    style: PropTypes.object, // Any valid for html size value.
+    className: PropTypes.string,
   };
 
   static defaultProps = {
-    style: DEFAULT_LOGO_STYLE,
+    className: 'wh-2em',
   };
 
   render() {
-    const { style } = this.props;
-    return (
-      <img
-        style={{ ...DEFAULT_LOGO_STYLE, ...style }}
-        src={LogoSVG}
-        alt='Jewel Logotype'
-      />
-    );
+    const { className } = this.props;
+    return <img alt='Jewel Logotype' className={className} src={LogoSVG} />;
   }
 }
 

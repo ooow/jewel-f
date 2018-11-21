@@ -5,19 +5,18 @@ import DateService from '../../services/DateService';
 import Advert from '../../models/Advert';
 import './AdvertCard.scss';
 
-const DEFAULT_SIZE = 250;
-
 /**
  * A view component which displays advert like a card.
  */
 class AdvertCard extends Component {
   static propTypes = {
     advert: PropTypes.instanceOf(Advert).isRequired,
+    // Size of the card, by default 250.
     size: PropTypes.number,
   };
 
   static defaultProps = {
-    size: DEFAULT_SIZE,
+    size: 250,
   };
 
   detectAuthor() {

@@ -8,6 +8,7 @@ import Router from './app/router';
 import store from './app/redux/store';
 import './index.scss';
 
+/** The Jewel. */
 class Index extends Component {
   render() {
     return (
