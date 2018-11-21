@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { Modal, ModalBody, UncontrolledTooltip } from 'reactstrap';
 import { CHANGE_LANGUAGE, changeLanguage } from '../../redux/actions/language';
 import Language from '../../models/Language';
-import './LanguageSelector.scss';
 
 /**
  * A view component which displays language icon and shows a dialog window
@@ -57,9 +56,11 @@ class LanguageSelector extends Component {
   renderLanguageBox() {
     const { languages } = this.props;
 
-    return languages.map(language => (language.isAvailable
-      ? this.renderAvailableLanguage(language)
-      : this.renderNotAvailableLanguage(language)));
+    return languages.map(
+      language => (language.isAvailable
+        ? this.renderAvailableLanguage(language)
+        : this.renderNotAvailableLanguage(language)),
+    );
   }
 
   /** Renders available for choosing language. */

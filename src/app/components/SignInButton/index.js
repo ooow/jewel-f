@@ -10,10 +10,10 @@ import SignInProviderButton from '../SignInProviderButton';
 class SignInButton extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       modal: false,
     };
-
     this.toggle = this.toggle.bind(this);
   }
 
@@ -35,8 +35,8 @@ class SignInButton extends Component {
               <div className='modal-title'>Sign in or Sign up in Jewel</div>
               <button
                 className='btn btn-link close'
-                onClick={this.toggle}
                 type='button'
+                onClick={this.toggle}
               >
                 <FontAwesomeIcon icon='times' />
               </button>
@@ -44,7 +44,7 @@ class SignInButton extends Component {
             <div className='modal-body'>
               <div className='row justify-content-center'>
                 <div className='mb-3 mx-auto'>
-                  <Logo style={{ height: '8rem', width: '8rem' }} />
+                  <Logo className='wh-8rem' />
                 </div>
               </div>
               <div className='row justify-content-center'>

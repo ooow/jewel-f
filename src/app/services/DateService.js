@@ -6,6 +6,8 @@ const NOT_EXIST_MESSAGE = 'Date not exist';
 export default class DateService {
   /**
    * Converts date in milliseconds to date in `dd.mm.yyyy` format.
+   * @param {number} date for converting
+   * @return {string}
    */
   static msToViewText(date) {
     if (date) {

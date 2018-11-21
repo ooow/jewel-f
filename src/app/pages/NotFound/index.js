@@ -20,6 +20,7 @@ class NotFound extends Component {
     }, REDIRECT_DELAY);
   }
 
+  // TODO: Rewrite with using bootstrap.
   render() {
     return (
       <div className='not-found-container'>

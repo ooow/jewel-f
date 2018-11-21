@@ -8,7 +8,10 @@ import {
 import { LOAD_ADVERTS_URL } from './ApiService';
 import Advert from '../../models/Advert';
 
-/** Fetches adverts. */
+/**
+ * Fetches adverts.
+ * @public
+ */
 export const fetchAdverts = () => (dispatch) => {
   dispatch(requestAdverts());
   return fetch(LOAD_ADVERTS_URL)

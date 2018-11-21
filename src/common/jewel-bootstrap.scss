@@ -1,0 +1,37 @@
+/**
+ * Additional custom classes in bootstrap style for using in the project.
+ */
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/** Sizing */
+.mw-120px {
+  min-width: 120px;
+}
+
+.wh-1em {
+  width: 1em;
+  height: 1em;
+}
+
+.wh-2em {
+  width: 2em;
+  height: 2em;
+}
+
+.wh-8rem {
+  width: 8rem;
+  height: 8rem;
+}
+
+/** Other */
+.image-fill {
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

@@ -25,9 +25,9 @@ class SignInProviderButton extends Component {
       >
         <span className='mr-2'>
           <img
+            className='wh-1em'
             alt={`${provider} Logotype`}
             src={PROVIDERS[provider]}
-            style={{ height: '1em', width: '1em' }}
           />
         </span>
         <span>Sing in using {provider}</span>
