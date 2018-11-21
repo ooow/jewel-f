@@ -57,17 +57,15 @@ class LanguageSelector extends Component {
   renderLanguageBox() {
     const { languages } = this.props;
 
-    return languages.map(
-      language => (language.isAvailable
-        ? this.renderAvailableLanguage(language)
-        : this.renderNotAvailableLanguage(language)),
-    );
+    return languages.map(language => (language.isAvailable
+      ? this.renderAvailableLanguage(language)
+      : this.renderNotAvailableLanguage(language)));
   }
 
   /** Renders available for choosing language. */
   renderAvailableLanguage(language) {
     const { iconSize } = this.props;
-    const flagSrc = require(`../.././assets/images/flags/${language.id}.svg`);
+    const flagSrc = require(`../../assets/images/flags/${language.id}.svg`);
 
     return (
       <div
@@ -84,7 +82,7 @@ class LanguageSelector extends Component {
   /** Renders not available for choosing language with tooltip. */
   renderNotAvailableLanguage(language) {
     const { iconSize } = this.props;
-    const flagSrc = require(`../.././assets/images/flags/${language.id}.svg`);
+    const flagSrc = require(`../../assets/images/flags/${language.id}.svg`);
 
     return (
       <div
@@ -104,7 +102,7 @@ class LanguageSelector extends Component {
   render() {
     const { selected, iconSize } = this.props;
     const { isLanguagesBoxOpen } = this.state;
-    const flagSrc = require(`../.././assets/images/flags/${selected.id}.svg`);
+    const flagSrc = require(`../../assets/images/flags/${selected.id}.svg`);
 
     return (
       <div>
