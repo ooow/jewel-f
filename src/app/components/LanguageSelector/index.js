@@ -28,7 +28,7 @@ class LanguageSelector extends Component {
   static defaultProps = {
     action: CHANGE_LANGUAGE,
     iconSize: 25,
-    selected: new Language('us', 'English', true),
+    selected: new Language('en', 'English', true),
   };
 
   constructor(props) {
@@ -37,14 +37,14 @@ class LanguageSelector extends Component {
     this.toggleLanguagesBox = this.toggleLanguagesBox.bind(this);
     this.state = {
       // Flag that determines whether language box is open/close.
-      isShowLanguagesBox: false,
+      isLanguagesBoxOpen: false,
     };
   }
 
   /** Shows or hides box with provided languages. */
   toggleLanguagesBox() {
-    const { isShowLanguagesBox } = this.state;
-    this.setState({ isShowLanguagesBox: !isShowLanguagesBox });
+    const { isLanguagesBoxOpen } = this.state;
+    this.setState({ isLanguagesBoxOpen: !isLanguagesBoxOpen });
   }
 
   selectAndClose(language) {
@@ -71,7 +71,7 @@ class LanguageSelector extends Component {
 
     return (
       <div
-        className='col-8 m-auto p-1 mw-120px cursor-pointer'
+        className='col-8 m-auto mw-120px btn btn-link d-flex align-items-start'
         key={language.id}
         onClick={this.selectAndClose.bind(this, language)}
       >
@@ -88,7 +88,7 @@ class LanguageSelector extends Component {
 
     return (
       <div
-        className='col-8 m-auto p-1 mw-120px cursor-pointer'
+        className='col-8 m-auto mw-120px btn d-flex align-items-start text-border'
         id='notAvailableLanguage'
         key={language.id}
       >
@@ -103,7 +103,7 @@ class LanguageSelector extends Component {
 
   render() {
     const { selected, iconSize } = this.props;
-    const { isShowLanguagesBox } = this.state;
+    const { isLanguagesBoxOpen } = this.state;
     const flagSrc = require(`../.././assets/images/flags/${selected.id}.svg`);
 
     return (
@@ -119,7 +119,7 @@ class LanguageSelector extends Component {
           className='mw-100'
           contentClassName='container mt-5 pt-5 pt-sm-0 flex-sm-row-reverse bg-transparent border-0'
           fade={false}
-          isOpen={isShowLanguagesBox}
+          isOpen={isLanguagesBoxOpen}
           toggle={this.toggleLanguagesBox}
         >
           <ModalBody className='col-2 p-0 py-2 mw-120px border-dark bg-white'>

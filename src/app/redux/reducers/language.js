@@ -8,7 +8,7 @@ const storedLanguage = LocalStorageService.getLanguage();
 if (storedLanguage) {
   initState = storedLanguage;
 } else {
-  const defaultLanguage = new Language('us', 'English', true);
+  const defaultLanguage = new Language('en', 'English', true);
   initState = defaultLanguage;
   LocalStorageService.setLanguage(defaultLanguage);
 }
