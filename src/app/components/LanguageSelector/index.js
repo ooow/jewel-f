@@ -47,57 +47,41 @@ class LanguageSelector extends Component {
   }
 
   selectAndClose(language) {
-    const { action, dispatch } = this.props;
-    dispatch(changeLanguage(action, language));
+    const { action, dispatch, selected } = this.props;
+    if (selected !== language) {
+      dispatch(changeLanguage(action, language));
+    }
     this.toggleLanguagesBox();
   }
 
   /** Renders box with provided languages. */
   renderLanguageBox() {
     const { languages } = this.props;
-
-    return languages.map(language => (language.isAvailable
-      ? this.renderAvailableLanguageButton(language)
-      : this.renderNotAvailableLanguageButton(language)));
+    return languages.map(this.renderLanguage.bind(this));
   }
 
-  /** Renders available for choosing language. */
-  renderAvailableLanguageButton(language) {
+  /** Renders language item for choosing, if available. */
+  renderLanguage(language) {
     const { iconSize } = this.props;
     const flagSrc = require(`../../assets/images/flags/${language.id}.svg`);
-
-    return (
-      <button
-        className='col m-auto btn btn-link d-flex align-items-start'
-        key={language.id}
-        onClick={this.selectAndClose.bind(this, language)}
-        type='button'
-      >
-        <img alt={language.title} src={flagSrc} width={iconSize} />
-        <span className='ml-2'>{language.title}</span>
-      </button>
-    );
-  }
-
-  /** Renders not available for choosing language with tooltip. */
-  renderNotAvailableLanguageButton(language) {
-    const { iconSize } = this.props;
-    const flagSrc = require(`../../assets/images/flags/${language.id}.svg`);
-    const id = `LanguageIcon-${language.id}`;
+    const id = `language-icon-${language.id}`;
 
     return (
       <span id={id} key={language.id}>
         <button
           className='col m-auto btn btn-link d-flex align-items-start'
-          disabled
           type='button'
+          disabled={!language.isAvailable}
+          onClick={this.selectAndClose.bind(this, language)}
         >
           <img alt={language.title} src={flagSrc} width={iconSize} />
           <span className='ml-2'>{language.title}</span>
         </button>
-        <UncontrolledTooltip placement='bottom' target={id} delay={0}>
-          Will be available soon
-        </UncontrolledTooltip>
+        {!language.isAvailable && (
+          <UncontrolledTooltip placement='bottom' target={id} delay={0}>
+            Will be available soon
+          </UncontrolledTooltip>
+        )}
       </span>
     );
   }
@@ -110,7 +94,7 @@ class LanguageSelector extends Component {
     return (
       <div>
         <img
-          id='SelectedLanguageIcon'
+          id='selected-language-icon'
           className='cursor-pointer'
           alt={selected.title}
           src={flagSrc}
@@ -119,8 +103,8 @@ class LanguageSelector extends Component {
         />
         <Popover
           placement='bottom'
+          target='selected-language-icon'
           isOpen={isLanguagesBoxOpen}
-          target='SelectedLanguageIcon'
           toggle={this.toggleLanguagesBox}
         >
           {this.renderLanguageBox()}
