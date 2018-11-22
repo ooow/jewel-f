@@ -19,8 +19,8 @@ class SearchBar extends Component {
 
   render() {
     const { className } = this.props;
-      const locations = mockJsonArrayOfLocations.map(Location.jsonToModel);
-      return (
+    const locations = mockJsonArrayOfLocations.map(Location.jsonToModel);
+    return (
       <div className={className}>
         <div className='input-group'>
           <div className='input-group-prepend'>
@@ -33,7 +33,7 @@ class SearchBar extends Component {
             placeholder='type to search...'
             type='text'
           />
-            <LocationSelector locations={locations} />
+          <LocationSelector locations={locations} />
         </div>
       </div>
     );
