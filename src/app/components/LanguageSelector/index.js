@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Modal, ModalBody, UncontrolledTooltip } from 'reactstrap';
+import { Popover, UncontrolledTooltip } from 'reactstrap';
 import { CHANGE_LANGUAGE, changeLanguage } from '../../redux/actions/language';
 import Language from '../../models/Language';
 
@@ -56,47 +56,49 @@ class LanguageSelector extends Component {
   renderLanguageBox() {
     const { languages } = this.props;
 
-    return languages.map(
-      language => (language.isAvailable
-        ? this.renderAvailableLanguage(language)
-        : this.renderNotAvailableLanguage(language)),
-    );
+    return languages.map(language => (language.isAvailable
+      ? this.renderAvailableLanguageButton(language)
+      : this.renderNotAvailableLanguageButton(language)));
   }
 
   /** Renders available for choosing language. */
-  renderAvailableLanguage(language) {
+  renderAvailableLanguageButton(language) {
     const { iconSize } = this.props;
     const flagSrc = require(`../../assets/images/flags/${language.id}.svg`);
 
     return (
-      <div
-        className='col-8 m-auto mw-120px btn btn-link d-flex align-items-start'
+      <button
+        className='col m-auto btn btn-link d-flex align-items-start'
         key={language.id}
         onClick={this.selectAndClose.bind(this, language)}
+        type='button'
       >
         <img alt={language.title} src={flagSrc} width={iconSize} />
         <span className='ml-2'>{language.title}</span>
-      </div>
+      </button>
     );
   }
 
   /** Renders not available for choosing language with tooltip. */
-  renderNotAvailableLanguage(language) {
+  renderNotAvailableLanguageButton(language) {
     const { iconSize } = this.props;
     const flagSrc = require(`../../assets/images/flags/${language.id}.svg`);
+    const id = `LanguageIcon-${language.id}`;
 
     return (
-      <div
-        className='col-8 m-auto mw-120px btn d-flex align-items-start text-border'
-        id='notAvailableLanguage'
-        key={language.id}
-      >
-        <img alt={language.title} src={flagSrc} width={iconSize} />
-        <span className='ml-2'>{language.title}</span>
-        <UncontrolledTooltip placement='bottom' target='notAvailableLanguage'>
-          Soon to be available
+      <span id={id} key={language.id}>
+        <button
+          className='col m-auto btn btn-link d-flex align-items-start'
+          disabled
+          type='button'
+        >
+          <img alt={language.title} src={flagSrc} width={iconSize} />
+          <span className='ml-2'>{language.title}</span>
+        </button>
+        <UncontrolledTooltip placement='bottom' target={id} delay={0}>
+          Will be available soon
         </UncontrolledTooltip>
-      </div>
+      </span>
     );
   }
 
@@ -108,23 +110,21 @@ class LanguageSelector extends Component {
     return (
       <div>
         <img
+          id='SelectedLanguageIcon'
           className='cursor-pointer'
           alt={selected.title}
           src={flagSrc}
           width={iconSize}
           onClick={this.toggleLanguagesBox}
         />
-        <Modal
-          className='mw-100'
-          contentClassName='container mt-5 pt-5 pt-sm-0 flex-sm-row-reverse bg-transparent border-0'
-          fade={false}
+        <Popover
+          placement='bottom'
           isOpen={isLanguagesBoxOpen}
+          target='SelectedLanguageIcon'
           toggle={this.toggleLanguagesBox}
         >
-          <ModalBody className='col-2 p-0 py-2 mw-120px border-dark bg-white'>
-            {this.renderLanguageBox()}
-          </ModalBody>
-        </Modal>
+          {this.renderLanguageBox()}
+        </Popover>
       </div>
     );
   }
