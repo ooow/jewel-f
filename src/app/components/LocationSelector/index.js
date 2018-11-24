@@ -1,42 +1,118 @@
 import React, { Component } from 'react';
-import Select from 'react-select';
 import PropTypes from 'prop-types';
-import './LocationSelector.scss';
+import { Popover } from 'reactstrap';
+import { connect } from 'react-redux';
 import Location from '../../models/Location';
+import { CHANGE_LOCATION, changeLocation } from '../../redux/actions/location';
 
 /**
  * A view component provides selection of the Location using list of predefined locations.
  */
 class LocationSelector extends Component {
   static propTypes = {
-    locations: PropTypes.arrayOf(PropTypes.instanceOf(Location)).isRequired,
+    action: PropTypes.string,
+    dispatch: PropTypes.func.isRequired,
+    locations: PropTypes.arrayOf(PropTypes.instanceOf(Location)),
+    selected: PropTypes.instanceOf(Location),
   };
 
-  onSelectChange = (location) => {
-    this.selectedLocation = location;
+  static defaultProps = {
+    action: CHANGE_LOCATION,
+    selected: new Location('Russia', 'Saratov'),
   };
 
-  toOption = (location) => {
-    const title = location.city === undefined ? location.country : location.city;
-    return { value: title, label: title };
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      // Flag that determines whether language box is open/close.
+      isLocationPopoverOpen: false,
+      filter: '',
+    };
+    this.toggleLocationPopover = this.toggleLocationPopover.bind(this);
+  }
+
+  toggleLocationPopover() {
+    this.setState(prevState => ({
+      isLocationPopoverOpen: !prevState.isLocationPopoverOpen,
+    }));
+  }
+
+  selectAndClose(location) {
+    const { action, dispatch, selected } = this.props;
+    if (selected !== location) {
+      dispatch(changeLocation(action, location));
+    }
+    this.setState({ filter: '' });
+    this.toggleLocationPopover();
+  }
+
+  renderLocationPopover() {
+    const { locations } = this.props;
+    const { filter } = this.state;
+    const locationsFiltered = locations.filter(location => location.country.toUpperCase().startsWith(filter.toUpperCase()) || location.city.toUpperCase().startsWith(filter.toUpperCase()));
+    return locationsFiltered.map(this.renderLocation.bind(this));
+  }
+
+  renderLocation(location) {
+    return (
+      <button
+        key={location.country + location.city}
+        className='col m-auto btn btn-link d-flex align-items-start'
+        type='button'
+        onClick={this.selectAndClose.bind(this, location)}
+      >
+        <span>
+          {location.country} {location.city}
+        </span>
+      </button>
+    );
+  }
+
+  onFilterChange(event) {
+    this.setState({ filter: event.target.value });
+  }
+
+  inputFieldValue() {
+    const { isLocationPopoverOpen, filter } = this.state;
+    const { selected } = this.props;
+
+    if (isLocationPopoverOpen) return filter;
+    if (selected !== null) return `${selected.country} ${selected.city}`;
+    return '';
+  }
 
   render() {
-    const { locations } = this.props;
-    const options = Array.from(locations, l => this.toOption(l));
-    this.selectedLocation = options[0].value;
+    const { isLocationPopoverOpen } = this.state;
+    const popoverId = 'languageinputfieldpopover';
     return (
-      <div className='input-group-append location-selector'>
-        <Select
-          className='w-100'
-          defaultValue={this.selectedLocation}
-          name={this.selectedLocation}
-          options={options}
-          onChange={location => this.onSelectChange(location)}
+      <div>
+        <input
+          id={popoverId}
+          className='form-control'
+          placeholder='location'
+          type='text'
+          onFocus={this.toggleLocationPopover}
+          // onBlur={this.toggleLocationPopover}
+          value={this.inputFieldValue()}
+          onChange={this.onFilterChange.bind(this)}
         />
+        <Popover
+          hideArrow
+          isOpen={isLocationPopoverOpen}
+          placement='bottom'
+          target={popoverId}
+          toggle={this.toggleLocationPopover}
+        >
+          {this.renderLocationPopover()}
+        </Popover>
       </div>
     );
   }
 }
 
-export default LocationSelector;
+function mapStateToProps(state) {
+  return state;
+}
+
+export default connect(mapStateToProps)(LocationSelector);

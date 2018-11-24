@@ -18,4 +18,11 @@ export default class Location {
   static jsonToModel(jsonObject) {
     return new Location(jsonObject.country, jsonObject.city);
   }
+
+  static toModel(item) {
+    if (!item) {
+      return null;
+    }
+    return new Location(item.country, item.city);
+  }
 }

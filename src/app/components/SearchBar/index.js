@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import LocationSelector from '../LocationSelector';
+import { connect } from 'react-redux';
 import Location from '../../models/Location';
+import LocationSelector from '../LocationSelector';
 import mockJsonArrayOfLocations from '../../mockData/locations.json';
 
 /**
@@ -11,15 +12,18 @@ import mockJsonArrayOfLocations from '../../mockData/locations.json';
 class SearchBar extends Component {
   static propTypes = {
     className: PropTypes.string,
+    location: PropTypes.instanceOf(Location).isRequired,
   };
 
   static defaultProps = {
     className: '',
   };
 
+  // TODO: Replace to real languages.
+  mockLocations = mockJsonArrayOfLocations.map(Location.jsonToModel);
+
   render() {
-    const { className } = this.props;
-    const locations = mockJsonArrayOfLocations.map(Location.jsonToModel);
+    const { className, location } = this.props;
     return (
       <div className={className}>
         <div className='input-group'>
@@ -33,11 +37,15 @@ class SearchBar extends Component {
             placeholder='type to search...'
             type='text'
           />
-          <LocationSelector locations={locations} />
+          <LocationSelector selected={location} locations={this.mockLocations} />
         </div>
       </div>
     );
   }
 }
 
-export default SearchBar;
+function mapStateToProps(state) {
+  return { location: state.location };
+}
+
+export default connect(mapStateToProps)(SearchBar);

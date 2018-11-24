@@ -1,5 +1,6 @@
 import window from 'global/window';
 import Language from '../models/Language';
+import Location from '../models/Location';
 
 /**
  * Tries to get value from local storage for provided key.
@@ -47,4 +48,20 @@ export default class LocalStoreService {
    * @public
    */
   static getLanguage = () => Language.toModel(read('language'));
+
+  /**
+   * Saves provided location into local storage.
+   * @param location: {!Location}
+   * @public
+   */
+  static setLocation = (location) => {
+    write('location', location);
+  };
+
+  /**
+   * Reads location from local storage.
+   * @return {?Location}
+   * @public
+   */
+  static getLocation = () => Location.toModel(read('location'));
 }
