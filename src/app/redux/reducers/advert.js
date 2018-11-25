@@ -3,8 +3,8 @@ import {
   RECEIVE_ADVERTS,
   REQUEST_ADVERTS,
 } from '../actions/advert';
-import mockJsonArrayOfAds from '../../mockData/ads.json';
 import Advert from '../../models/Advert';
+import mockJsonArrayOfAds from '../../mockData/ads';
 
 /** Initializes state using mock data from json file. */
 const initState = {

@@ -42,8 +42,9 @@ class LanguageSelector extends Component {
 
   /** Shows or hides box with provided languages. */
   toggleLanguagesBox() {
-    const { isLanguagesBoxOpen } = this.state;
-    this.setState({ isLanguagesBoxOpen: !isLanguagesBoxOpen });
+    this.setState(prevState => ({
+      isLanguagesBoxOpen: !prevState.isLanguagesBoxOpen,
+    }));
   }
 
   selectAndClose(language) {
@@ -90,22 +91,22 @@ class LanguageSelector extends Component {
     const { selected, iconSize } = this.props;
     const { isLanguagesBoxOpen } = this.state;
     const flagSrc = require(`../../assets/images/flags/${selected.id}.svg`);
-    const popoverID = 'selected-language-icon';
+    const selectedId = 'selected-language';
 
     return (
       <div>
-        <button id={popoverID} className='btn btn-link' type='button' onClick={this.toggleLanguagesBox}>
-          <img
-            className='cursor-pointer'
-            alt={selected.title}
-            src={flagSrc}
-            width={iconSize}
-          />
+        <button
+          className='btn btn-link'
+          type='button'
+          id={selectedId}
+          onClick={this.toggleLanguagesBox}
+        >
+          <img alt={selected.title} src={flagSrc} width={iconSize} />
         </button>
         <Popover
           placement='bottom'
-          target={popoverID}
           isOpen={isLanguagesBoxOpen}
+          target={selectedId}
           toggle={this.toggleLanguagesBox}
         >
           {this.renderLanguageBox()}

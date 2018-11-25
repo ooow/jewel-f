@@ -7,11 +7,11 @@
   {
     "id": "pl",
     "title": "Polish",
-    "isAvailable": false
+    "isAvailable": true
   },
   {
     "id": "ru",
     "title": "Russian",
-    "isAvailable": true
+    "isAvailable": false
   }
 ]

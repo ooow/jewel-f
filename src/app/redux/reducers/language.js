@@ -4,7 +4,7 @@ import Language from '../../models/Language';
 
 /**
  *  Tries to read language from the local store,
- *  if not it sets default as English
+ *  if not it sets default as English.
  */
 let initState;
 const storedLanguage = LocalStorageService.getLanguage();

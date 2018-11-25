@@ -12,7 +12,7 @@ const read = (key) => {
   try {
     object = JSON.parse(window.localStorage.getItem(key));
   } catch (e) {
-    /** TODO: Handle possible error. */
+    // TODO: Handle possible error.
     return null;
   }
   return object;

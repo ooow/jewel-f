@@ -12,7 +12,7 @@ export default class Location {
   }
 
   toString() {
-    return `country: ${this.country} city: ${this.city}`;
+    return `${this.country}, ${this.city}`;
   }
 
   static jsonToModel(jsonObject) {
