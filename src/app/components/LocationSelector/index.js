@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Popover } from 'reactstrap';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Location from '../../models/Location';
 import { CHANGE_LOCATION, changeLocation } from '../../redux/actions/location';
 
@@ -12,13 +13,13 @@ class LocationSelector extends Component {
   static propTypes = {
     action: PropTypes.string,
     dispatch: PropTypes.func.isRequired,
-    locations: PropTypes.arrayOf(PropTypes.instanceOf(Location)),
+    locations: PropTypes.arrayOf(PropTypes.instanceOf(Location)).isRequired,
     selected: PropTypes.instanceOf(Location),
   };
 
   static defaultProps = {
     action: CHANGE_LOCATION,
-    selected: new Location('Russia', 'Saratov'),
+    selected: null,
   };
 
   constructor(props) {
@@ -32,10 +33,17 @@ class LocationSelector extends Component {
     this.toggleLocationPopover = this.toggleLocationPopover.bind(this);
   }
 
-  toggleLocationPopover() {
-    this.setState(prevState => ({
-      isLocationPopoverOpen: !prevState.isLocationPopoverOpen,
-    }));
+  onFilterChange(event) {
+    this.setState({ filter: event.target.value });
+  }
+
+  inputFieldValue() {
+    const { isLocationPopoverOpen, filter } = this.state;
+    const { selected } = this.props;
+
+    if (isLocationPopoverOpen) return filter;
+    if (selected !== null) return `${selected.country} ${selected.city}`;
+    return '';
   }
 
   selectAndClose(location) {
@@ -47,11 +55,10 @@ class LocationSelector extends Component {
     this.toggleLocationPopover();
   }
 
-  renderLocationPopover() {
-    const { locations } = this.props;
-    const { filter } = this.state;
-    const locationsFiltered = locations.filter(location => location.country.toUpperCase().startsWith(filter.toUpperCase()) || location.city.toUpperCase().startsWith(filter.toUpperCase()));
-    return locationsFiltered.map(this.renderLocation.bind(this));
+  toggleLocationPopover() {
+    this.setState(prevState => ({
+      isLocationPopoverOpen: !prevState.isLocationPopoverOpen,
+    }));
   }
 
   renderLocation(location) {
@@ -69,27 +76,29 @@ class LocationSelector extends Component {
     );
   }
 
-  onFilterChange(event) {
-    this.setState({ filter: event.target.value });
-  }
-
-  inputFieldValue() {
-    const { isLocationPopoverOpen, filter } = this.state;
-    const { selected } = this.props;
-
-    if (isLocationPopoverOpen) return filter;
-    if (selected !== null) return `${selected.country} ${selected.city}`;
-    return '';
+  renderLocationPopover() {
+    const { locations } = this.props;
+    const { filter } = this.state;
+    const locationsFiltered = locations.filter(
+      location => location.country.toUpperCase().startsWith(filter.toUpperCase())
+        || location.city.toUpperCase().startsWith(filter.toUpperCase()),
+    );
+    return locationsFiltered.map(this.renderLocation.bind(this));
   }
 
   render() {
     const { isLocationPopoverOpen } = this.state;
     const popoverId = 'languageinputfieldpopover';
     return (
-      <div>
+      <div className='input-group'>
+        <div className='input-group-prepend d-none d-sm-inline-flex'>
+          <span className='input-group-text bg-white text-border'>
+            <FontAwesomeIcon icon='map-marker-alt' />
+          </span>
+        </div>
         <input
           id={popoverId}
-          className='form-control'
+          className='form-control d-inline'
           placeholder='location'
           type='text'
           onFocus={this.toggleLocationPopover}

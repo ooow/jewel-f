@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
+import {
+  faSearch,
+  faTimes,
+  faMapMarkerAlt,
+} from '@fortawesome/free-solid-svg-icons';
 import registerServiceWorker from './registerServiceWorker';
 import Router from './app/router';
 import store from './app/redux/store';
@@ -21,6 +25,7 @@ class Index extends Component {
 
 library.add(faSearch);
 library.add(faTimes);
+library.add(faMapMarkerAlt);
 
 ReactDOM.render(<Index />, document.getElementById('root'));
 registerServiceWorker();

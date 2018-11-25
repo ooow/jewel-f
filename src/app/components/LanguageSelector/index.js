@@ -90,20 +90,21 @@ class LanguageSelector extends Component {
     const { selected, iconSize } = this.props;
     const { isLanguagesBoxOpen } = this.state;
     const flagSrc = require(`../../assets/images/flags/${selected.id}.svg`);
+    const popoverID = 'selected-language-icon';
 
     return (
       <div>
-        <img
-          id='selected-language-icon'
-          className='cursor-pointer'
-          alt={selected.title}
-          src={flagSrc}
-          width={iconSize}
-          onClick={this.toggleLanguagesBox}
-        />
+        <button id={popoverID} className='btn btn-link' type='button' onClick={this.toggleLanguagesBox}>
+          <img
+            className='cursor-pointer'
+            alt={selected.title}
+            src={flagSrc}
+            width={iconSize}
+          />
+        </button>
         <Popover
           placement='bottom'
-          target='selected-language-icon'
+          target={popoverID}
           isOpen={isLanguagesBoxOpen}
           toggle={this.toggleLanguagesBox}
         >
