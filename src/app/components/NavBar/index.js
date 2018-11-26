@@ -24,11 +24,14 @@ class NavBar extends Component {
 
     return (
       <nav className='navbar navbar-light bg-white border-bottom'>
-        <div className='container d-flex justify-content-between flex-sm-nowrap'>
+        <div className='container
+                        d-flex
+                        flex-sm-nowrap
+                        justify-content-between'>
           <a className='navbar-brand mx-1 p-0 d-none d-sm-inline' href='/'>
             <Logo />
           </a>
-          <SearchBar className='mx-5 w-100' />
+          <SearchBar className='mx-3 w-100' />
           <LanguageSelector
             languages={this.mockLanguages}
             selected={language}

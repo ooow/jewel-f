@@ -1,4 +1,4 @@
-/* eslint-disable import/no-dynamic-require,jsx-a11y/no-static-element-interactions */
+/* eslint-disable import/no-dynamic-require */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -73,8 +73,7 @@ class LanguageSelector extends Component {
           className='col m-auto btn btn-link d-flex align-items-start'
           type='button'
           disabled={!language.isAvailable}
-          onClick={this.selectAndClose.bind(this, language)}
-        >
+          onClick={this.selectAndClose.bind(this, language)}>
           <img alt={language.title} src={flagSrc} width={iconSize} />
           <span className='ml-2'>{language.title}</span>
         </button>
@@ -99,16 +98,14 @@ class LanguageSelector extends Component {
           className='btn btn-link'
           type='button'
           id={selectedId}
-          onClick={this.toggleLanguagesBox}
-        >
+          onClick={this.toggleLanguagesBox}>
           <img alt={selected.title} src={flagSrc} width={iconSize} />
         </button>
         <Popover
           placement='bottom'
           isOpen={isLanguagesBoxOpen}
           target={selectedId}
-          toggle={this.toggleLanguagesBox}
-        >
+          toggle={this.toggleLanguagesBox}>
           {this.renderLanguageBox()}
         </Popover>
       </div>

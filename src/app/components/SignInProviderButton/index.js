@@ -20,9 +20,13 @@ class SignInProviderButton extends Component {
     const { provider } = this.props;
     return (
       <button
-        className='btn btn-outline-border btn-block text-left text-black-50 shadow-sm'
-        type='button'
-      >
+        className='btn
+                   btn-block
+                   shadow-sm
+                   text-black-50
+                   text-left
+                   tn-outline-border'
+        type='button'>
         <span className='mr-2'>
           <img
             className='wh-1em'

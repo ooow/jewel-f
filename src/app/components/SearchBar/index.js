@@ -20,7 +20,7 @@ class SearchBar extends Component {
   };
 
   // TODO: Replace to real locations.
-  mockLocations = mockJsonArrayOfLocations.map(Location.jsonToModel);
+  mockLocations = mockJsonArrayOfLocations.map(Location.toModel);
 
   render() {
     const { className, location } = this.props;

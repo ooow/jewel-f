@@ -16,35 +16,36 @@
 }
 
 .wh-1em {
-  width: 1em;
   height: 1em;
+  width: 1em;
 }
 
 .wh-2em {
-  width: 2em;
   height: 2em;
+  width: 2em;
 }
 
 .wh-8rem {
-  width: 8rem;
   height: 8rem;
+  width: 8rem;
 }
 
 /** Other */
 .image-fill {
-  background-position: center center;
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
+// TODO: Correct style.
 .custom-form-control-input {
   &:focus-within {
-    color: $input-focus-color;
     background-color: $input-focus-bg;
     border-color: $input-focus-border-color;
+    color: $input-focus-color;
     outline: 0;
     // Avoid using mixin so we can pass custom focus shadow properly
     @if $enable-shadows {
@@ -53,6 +54,7 @@
       box-shadow: $input-focus-box-shadow;
     }
   }
+
   input {
     border: none;
     outline: none;

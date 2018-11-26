@@ -38,16 +38,23 @@ class AdvertCard extends Component {
     return (
       <div className='card shadow m-1' style={cardStyle}>
         <Link
-          to={`/ad/${advert.id}`}
           className='card-img-top image-fill h-100'
           style={{ backgroundImage: `url("${advert.imageUrl}")` }}
+          to={`/ad/${advert.id}`}
         />
         <div className='card-body p-1'>
-          <div className='d-flex flex-wrap justify-content-between mb-2 font-weight-bold'>
+          <div className='d-flex
+                          flex-wrap
+                          font-weight-bold
+                          justify-content-between
+                          mb-2'>
             <span>{advert.title}</span>
             <span>{advert.rate.toString()}</span>
           </div>
-          <div className='d-flex flex-wrap justify-content-between small text-muted'>
+          <div className='d-flex
+                          flex-wrap
+                          justify-content-between
+                          small text-muted'>
             <a href='/'>{author}</a>
             <span>{advert.location.city}</span>
             <span>{createdAt}</span>

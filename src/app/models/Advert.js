@@ -65,7 +65,7 @@ export default class Advert {
       jsonObject.isActive,
       Rate.jsonToModel(jsonObject.rate),
       jsonObject.contacts,
-      Location.jsonToModel(jsonObject.location),
+      Location.toModel(jsonObject.location),
       jsonObject.requirements,
       jsonObject.settings,
     );
