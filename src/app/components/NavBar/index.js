@@ -28,7 +28,7 @@ class NavBar extends Component {
           <a className='navbar-brand mx-1 p-0 d-none d-sm-inline' href='/'>
             <Logo />
           </a>
-          <SearchBar className='mx-1 w-100' />
+          <SearchBar className='mx-5 w-100' />
           <LanguageSelector
             languages={this.mockLanguages}
             selected={language}

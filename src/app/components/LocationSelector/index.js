@@ -53,7 +53,6 @@ class LocationSelector extends Component {
     this.setState({ isLocationPopoverOpen: false });
   }
 
-
   selectAndClose(location) {
     const { action, dispatch, selected } = this.props;
     if (selected !== location) {
@@ -104,28 +103,30 @@ class LocationSelector extends Component {
     );
   }
 
-
   render() {
     const { isLocationPopoverOpen } = this.state;
     const selectedId = 'selected-location';
     const { selected } = this.props;
 
     return (
-      <div id={selectedId} className='form-control custom-form-control-input'>
+      <div
+        className='form-control custom-form-control-input'
+        id={selectedId}
+        style={{ maxWidth: '10rem' }}
+      >
         <div className='form-inline flex-nowrap'>
-
           <FontAwesomeIcon className='text-border mr-2' icon='map-marker-alt' />
           <input
             className='w-100'
-            placeholder='Location'
-            onFocus={this.toggleLocationPopover}
             onChange={this.valueChange}
+            onFocus={this.toggleLocationPopover}
+            placeholder='Location'
             value={this.value()}
           />
           <Popover
             hideArrow
-            placement='bottom'
             isOpen={isLocationPopoverOpen}
+            placement='bottom'
             target={selectedId}
             toggle={this.toggleLocationPopover}
           >
@@ -135,13 +136,13 @@ class LocationSelector extends Component {
             <button
               className='btn btn-link p-0'
               onClick={this.selectAndClose.bind(this, null)}
+              type='button'
             >
               <FontAwesomeIcon className='text-border' icon='times' />
             </button>
           )}
         </div>
       </div>
-
     );
   }
 }
