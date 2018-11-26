@@ -6,7 +6,7 @@ import LanguageSelector from '../LanguageSelector';
 import Logo from '../Logo';
 import SearchBar from '../SearchBar';
 import SignInButton from '../SignInButton';
-import mockJsonArrayOfLanguages from '../../mockData/languages.json';
+import mockJsonArrayOfLanguages from '../../mockData/languages';
 
 /**
  * A view component which displays a Navigation bar.
@@ -30,8 +30,8 @@ class NavBar extends Component {
           </a>
           <SearchBar className='mx-1 w-100' />
           <LanguageSelector
-            selected={language}
             languages={this.mockLanguages}
+            selected={language}
           />
           <SignInButton />
         </div>
@@ -41,7 +41,9 @@ class NavBar extends Component {
 }
 
 function mapStateToProps(state) {
-  return { language: state.language };
+  return {
+    language: state.language,
+  };
 }
 
 export default connect(mapStateToProps)(NavBar);
