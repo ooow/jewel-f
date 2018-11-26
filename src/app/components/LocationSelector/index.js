@@ -5,6 +5,7 @@ import { Popover } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CHANGE_LOCATION, changeLocation } from '../../redux/actions/location';
 import Location from '../../models/Location';
+import CustomFormInput from '../CustomFormInput';
 
 /**
  * A view component which displays field-selector for searching location from
@@ -99,23 +100,23 @@ class LocationSelector extends Component {
     );
   }
 
+  renderIcon() {
+    return <FontAwesomeIcon className='text-border' icon='map-marker-alt' />;
+  }
+
   render() {
     const { isLocationPopoverOpen } = this.state;
     const selectedId = 'selected-location';
 
     return (
-      <div className='input-group-append w-20'>
-        <span className='input-group-prepend input-group-text bg-white text-border'>
-          <FontAwesomeIcon icon='map-marker-alt' />
-        </span>
-        <input
-          className='form-control d-inline text-center'
-          placeholder='Location'
-          id={selectedId}
-          onChange={this.valueChange}
-          onFocus={this.toggleLocationPopover}
-          value={this.value()}
-        />
+      <CustomFormInput
+        id={selectedId}
+        icon={this.renderIcon()}
+        placeholder='Location'
+        onFocus={this.toggleLocationPopover}
+        onChange={this.valueChange}
+        value={this.value()}
+      >
         <Popover
           hideArrow
           placement='bottom'
@@ -125,7 +126,7 @@ class LocationSelector extends Component {
         >
           {this.renderLocationPopover()}
         </Popover>
-      </div>
+      </CustomFormInput>
     );
   }
 }
