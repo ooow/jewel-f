@@ -5,7 +5,6 @@ import { Popover } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CHANGE_LOCATION, changeLocation } from '../../redux/actions/location';
 import Location from '../../models/Location';
-import CustomFormInput from '../CustomFormInput';
 
 /**
  * A view component which displays field-selector for searching location from
@@ -50,13 +49,18 @@ class LocationSelector extends Component {
     }));
   }
 
+  closeLocationPopover() {
+    this.setState({ isLocationPopoverOpen: false });
+  }
+
+
   selectAndClose(location) {
     const { action, dispatch, selected } = this.props;
     if (selected !== location) {
       dispatch(changeLocation(action, location));
     }
     this.setState({ value: '' });
-    this.toggleLocationPopover();
+    this.closeLocationPopover();
   }
 
   /** Returns input field value or selected location. */
@@ -64,7 +68,7 @@ class LocationSelector extends Component {
     const { isLocationPopoverOpen, value } = this.state;
     const { selected } = this.props;
 
-    return isLocationPopoverOpen ? value : selected.city;
+    return isLocationPopoverOpen || selected === null ? value : selected.city;
   }
 
   valueChange(event) {
@@ -88,7 +92,7 @@ class LocationSelector extends Component {
   /** Renders location item for choosing. */
   renderLocation(location) {
     return (
-      // TODO: Replace id to location.id, when it will be available.
+      // TODO: Replace id and key to location.id, when it will be available.
       <button
         className='col m-auto btn btn-link d-flex align-items-start'
         type='button'
@@ -100,33 +104,44 @@ class LocationSelector extends Component {
     );
   }
 
-  renderIcon() {
-    return <FontAwesomeIcon className='text-border' icon='map-marker-alt' />;
-  }
 
   render() {
     const { isLocationPopoverOpen } = this.state;
     const selectedId = 'selected-location';
+    const { selected } = this.props;
 
     return (
-      <CustomFormInput
-        id={selectedId}
-        icon={this.renderIcon()}
-        placeholder='Location'
-        onFocus={this.toggleLocationPopover}
-        onChange={this.valueChange}
-        value={this.value()}
-      >
-        <Popover
-          hideArrow
-          placement='bottom'
-          isOpen={isLocationPopoverOpen}
-          target={selectedId}
-          toggle={this.toggleLocationPopover}
-        >
-          {this.renderLocationPopover()}
-        </Popover>
-      </CustomFormInput>
+      <div id={selectedId} className='form-control custom-form-control-input'>
+        <div className='form-inline flex-nowrap'>
+
+          <FontAwesomeIcon className='text-border mr-2' icon='map-marker-alt' />
+          <input
+            className='w-100'
+            placeholder='Location'
+            onFocus={this.toggleLocationPopover}
+            onChange={this.valueChange}
+            value={this.value()}
+          />
+          <Popover
+            hideArrow
+            placement='bottom'
+            isOpen={isLocationPopoverOpen}
+            target={selectedId}
+            toggle={this.toggleLocationPopover}
+          >
+            {this.renderLocationPopover()}
+          </Popover>
+          {selected && (
+            <button
+              className='btn btn-link p-0'
+              onClick={this.selectAndClose.bind(this, null)}
+            >
+              <FontAwesomeIcon className='text-border' icon='times' />
+            </button>
+          )}
+        </div>
+      </div>
+
     );
   }
 }
