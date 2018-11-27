@@ -9,9 +9,23 @@
     "react/jsx-filename-extension": 0,
     "react/jsx-one-expression-per-line": 0,
     "react/prefer-stateless-function": 0,
+    "react/jsx-closing-bracket-location": [
+      "enabled",
+      {
+        "nonEmpty": "after-props",
+        "selfClosing": "after-props"
+      }
+    ],
     "jsx-quotes": [
       "error",
       "prefer-single"
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 80,
+        "tabWidth": 2
+      }
     ]
   },
   "overrides": [
