@@ -63,23 +63,26 @@ class LocationSelector extends Component {
     const { isLocationPopoverOpen, value } = this.state;
     const { selected } = this.props;
 
-    return isLocationPopoverOpen ? value : selected.city;
+    return isLocationPopoverOpen ? value : selected.city || selected.country;
   }
 
   valueChange(event) {
     this.setState({ value: event.target.value });
   }
 
-  /** Renders popover with provided locations. Filters locations on value
-   * change. */
+  /**
+   * Renders popover with provided locations. Filters locations on value
+   * change.
+   */
   renderLocationPopover() {
     const { locations } = this.props;
     const { value } = this.state;
+    const searchPhrase = value.toLowerCase();
 
-    const locationsFiltered = locations.filter(
-      ({ city, country }) => country.toLowerCase().startsWith(value.toLowerCase())
-        || city.toLowerCase().startsWith(value.toLowerCase()),
-    );
+    const locationsFiltered = locations.filter(location => location
+      .toString()
+      .toLowerCase()
+      .includes(searchPhrase));
 
     return locationsFiltered.map(this.renderLocation);
   }
@@ -87,13 +90,12 @@ class LocationSelector extends Component {
   /** Renders location item for choosing. */
   renderLocation(location) {
     return (
-      // TODO: Replace id to location.id, when it will be available.
+      // TODO: Replace key to location.id, when it will be available.
       <button
         className='col m-auto btn btn-link d-flex align-items-start'
         type='button'
         key={location.country + location.city}
-        onClick={this.selectAndClose.bind(this, location)}
-      >
+        onClick={this.selectAndClose.bind(this, location)}>
         <span>{location.toString()}</span>
       </button>
     );
@@ -104,27 +106,28 @@ class LocationSelector extends Component {
     const selectedId = 'selected-location';
 
     return (
-      <div className='input-group-append w-20'>
-        <span className='input-group-prepend input-group-text bg-white text-border'>
-          <FontAwesomeIcon icon='map-marker-alt' />
-        </span>
-        <input
-          className='form-control d-inline text-center'
-          placeholder='Location'
-          id={selectedId}
-          onChange={this.valueChange}
-          onFocus={this.toggleLocationPopover}
-          value={this.value()}
-        />
-        <Popover
-          hideArrow
-          placement='bottom'
-          isOpen={isLocationPopoverOpen}
-          target={selectedId}
-          toggle={this.toggleLocationPopover}
-        >
-          {this.renderLocationPopover()}
-        </Popover>
+      <div
+        className='form-control custom-form-control-input'
+        id={selectedId}
+        style={{ maxWidth: '10rem' }}>
+        <div className='form-inline flex-nowrap'>
+          <FontAwesomeIcon className='text-border mr-2' icon='map-marker-alt' />
+          <input
+            className='w-100'
+            placeholder='Location'
+            onChange={this.valueChange}
+            onFocus={this.toggleLocationPopover}
+            value={this.value()}
+          />
+          <Popover
+            hideArrow
+            placement='bottom'
+            isOpen={isLocationPopoverOpen}
+            target={selectedId}
+            toggle={this.toggleLocationPopover}>
+            {this.renderLocationPopover()}
+          </Popover>
+        </div>
       </div>
     );
   }

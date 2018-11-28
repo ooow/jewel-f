@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 export default class Location {
   static propTypes = {
-    country: PropTypes.string,
+    country: PropTypes.string.isRequired,
     city: PropTypes.string,
   };
 
@@ -12,17 +12,15 @@ export default class Location {
   }
 
   toString() {
-    return `${this.country}, ${this.city}`;
-  }
-
-  static jsonToModel(jsonObject) {
-    return new Location(jsonObject.country, jsonObject.city);
+    return this.city ? `${this.country}, ${this.city}` : this.country;
   }
 
   static toModel(item) {
     if (!item) {
       return null;
     }
-    return new Location(item.country, item.city);
+    return item.city
+      ? new Location(item.country, item.city)
+      : new Location(item.country);
   }
 }

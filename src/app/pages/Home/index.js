@@ -21,7 +21,10 @@ class Home extends Component {
       <div>
         <NavBar />
         <section className='container'>
-          <div className='d-flex flex-wrap justify-content-center justify-content-sm-between'>
+          <div className='d-flex
+                          flex-wrap
+                          justify-content-center
+                          justify-content-sm-between'>
             {this.renderAds()}
           </div>
         </section>
