@@ -5,15 +5,21 @@ import Advert from '../../models/Advert';
 import AdvertCard from '../../components/AdvertCard';
 import NavBar from '../../components/NavBar';
 
-/* It's a temp component, will be removed soon */
-class Home extends Component {
+/**
+ * Component renders the main Jewel page.
+ */
+class Main extends Component {
   static propTypes = {
     adverts: PropTypes.arrayOf(PropTypes.instanceOf(Advert)).isRequired,
   };
 
   renderAds() {
     const { adverts } = this.props;
-    return adverts.map(a => <AdvertCard advert={a} key={a.id} />);
+    return adverts.map(advert => (
+      <AdvertCard
+        advert={advert}
+        key={advert.id} />
+    ));
   }
 
   render() {
@@ -37,4 +43,4 @@ function mapStateToProps(state) {
   return { adverts: state.adverts.items };
 }
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(Main);
