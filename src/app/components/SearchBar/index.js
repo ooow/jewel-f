@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Location from '../../models/Location';
 import LocationSelector from '../LocationSelector';
-import mockJsonArrayOfLocations from '../../mockData/locations';
+import mockJsonArrayOfLocations from '../../mock/locations';
 
 /**
  * A view component which displays search bar.

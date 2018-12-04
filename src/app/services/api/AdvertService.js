@@ -16,6 +16,6 @@ export const fetchAdverts = () => (dispatch) => {
   dispatch(requestAdverts());
   return fetch(LOAD_ADVERTS_URL)
     .then(response => response.json())
-    .then(adverts => dispatch(receiveAdverts(adverts.map(Advert.jsonToModel))))
+    .then(adverts => dispatch(receiveAdverts(adverts.map(Advert.toModel))))
     .catch(error => dispatch(failedFetchingAdverts(error)));
 };

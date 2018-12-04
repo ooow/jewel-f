@@ -13,10 +13,10 @@ export default class Language {
     this.isAvailable = isAvailable;
   }
 
-  static toModel(item) {
-    if (!item) {
+  static toModel(object) {
+    if (!object) {
       return null;
     }
-    return new Language(item.id, item.title, item.isAvailable);
+    return new Language(object.id, object.title, object.isAvailable);
   }
 }

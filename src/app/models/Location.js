@@ -15,12 +15,12 @@ export default class Location {
     return this.city ? `${this.country}, ${this.city}` : this.country;
   }
 
-  static toModel(item) {
-    if (!item) {
+  static toModel(object) {
+    if (!object) {
       return null;
     }
-    return item.city
-      ? new Location(item.country, item.city)
-      : new Location(item.country);
+    return object.city
+      ? new Location(object.country, object.city)
+      : new Location(object.country);
   }
 }

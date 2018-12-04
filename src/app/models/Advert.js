@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import Rate from './Rate';
 import Contacts from './Contacts';
 import Location from './Location';
+import Rate from './Rate';
 import Requirements from './Requirements';
 import Settings from './AdvertSettings';
 
@@ -46,28 +46,22 @@ export default class Advert {
     this.settings = settings;
   }
 
-  toString() {
-    return `id: ${this.id} 
-    title: ${this.title} 
-    imageUrl: ${this.imageUrl} 
-    description: ${this.description} 
-    createdAt: ${this.createdAt} 
-    isActive: ${this.isActive}`;
-  }
-
-  static jsonToModel(jsonObject) {
+  static toModel(object) {
+    if (!object) {
+      return null;
+    }
     return new Advert(
-      jsonObject.id,
-      jsonObject.title,
-      jsonObject.imageUrl,
-      jsonObject.description,
-      jsonObject.createdAt,
-      jsonObject.isActive,
-      Rate.jsonToModel(jsonObject.rate),
-      jsonObject.contacts,
-      Location.toModel(jsonObject.location),
-      jsonObject.requirements,
-      jsonObject.settings,
+      object.id,
+      object.title,
+      object.imageUrl,
+      object.description,
+      object.createdAt,
+      object.isActive,
+      Rate.toModel(object.rate),
+      Contacts.toModel(object.contacts),
+      Location.toModel(object.location),
+      Requirements.toModel(object.requirements),
+      Settings.toModel(object.settings),
     );
   }
 }

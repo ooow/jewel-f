@@ -1,4 +1,5 @@
-/* eslint-disable no-undef,no-underscore-dangle */
+/* eslint-disable no-underscore-dangle */
+import window from 'global/window';
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import reducers from '../reducers';
@@ -12,12 +13,17 @@ function generateStore() {
   const middleware = [thunk];
 
   if (!EnvService.isProdEnv()) {
-    /** Redux devtools is available on dev env.
-     Please add to your Crhome "Redux DevTools" extension. */
+    /**
+     * Redux devtools is available on dev env.
+     * Please, add to your Crhome "Redux DevTools" extension.
+     *
+     * @link https://chrome.google.com/webstore/detail/redux-devtools
+     * /lmhkpmbekcpmknklioeibfkpmmfibljd
+     */
     return createStore(
       reducers,
       window.__REDUX_DEVTOOLS_EXTENSION__
-        && window.__REDUX_DEVTOOLS_EXTENSION__(),
+      && window.__REDUX_DEVTOOLS_EXTENSION__(),
       applyMiddleware(...middleware),
     );
   }
