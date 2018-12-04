@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserCircle } from '@fortawesome/free-regular-svg-icons';
 import Contacts from '../../models/Contacts';
-import UserCircleRegular
-  from '../../assets/images/icons/user-circle-regular.svg';
 
 /**
  * A view component which displays card with the owner contact information.
@@ -35,10 +35,10 @@ class ContactCard extends Component {
                           h-85
                           justify-content-center
                           w-80'>
-            <img
-              alt='Profile'
-              className='wh-50 mt-1'
-              src={UserCircleRegular} />
+            <FontAwesomeIcon
+              className='text-half-primary'
+              size='9x'
+              icon={faUserCircle} />
             <span className='mt-1'>{contacts.person}</span>
             <span className='border-bottom border-divider mt-1 w-100' />
             <span className='mt-2'>{contacts.email}</span>
