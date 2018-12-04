@@ -54,7 +54,8 @@ class AdvertCard extends Component {
           <div className='d-flex
                           flex-wrap
                           justify-content-between
-                          small text-muted'>
+                          small
+                          text-muted'>
             <a href='/'>{author}</a>
             <span>{advert.location.city}</span>
             <span>{createdAt}</span>

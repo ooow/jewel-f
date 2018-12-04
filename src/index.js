@@ -1,11 +1,12 @@
+import document from 'global/document';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
+  faMapMarkerAlt,
   faSearch,
   faTimes,
-  faMapMarkerAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import registerServiceWorker from './registerServiceWorker';
 import Router from './app/router';
@@ -23,9 +24,9 @@ class Index extends Component {
   }
 }
 
+library.add(faMapMarkerAlt);
 library.add(faSearch);
 library.add(faTimes);
-library.add(faMapMarkerAlt);
 
 ReactDOM.render(<Index />, document.getElementById('root'));
 registerServiceWorker();
