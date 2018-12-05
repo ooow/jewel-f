@@ -10,6 +10,9 @@
       "isContractual": true
     },
     "contacts": {
+      "phone": "+48 543432900",
+      "person": "Magdalena",
+      "email": "face@book.com"
     },
     "location": {
       "country": "UK",
