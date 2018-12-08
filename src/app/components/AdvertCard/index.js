@@ -40,7 +40,7 @@ class AdvertCard extends Component {
         <Link
           className='card-img-top image-fill h-100'
           style={{ backgroundImage: `url("${advert.imageUrl}")` }}
-          to={`/ad/${advert.id}`}
+          to={`/advert/${advert.id}`}
         />
         <div className='card-body p-1'>
           <div className='d-flex
