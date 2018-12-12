@@ -5,11 +5,14 @@ export default class AdvertSettings {
     autoDeactivateAt: PropTypes.number,
   };
 
-  constructor(isRemoved, autoDeactivateAt) {
+  constructor(autoDeactivateAt) {
     this.autoDeactivateAt = autoDeactivateAt;
   }
 
-  toString() {
-    return `autoDeactivateAt: ${this.autoDeactivateAt}`;
+  static toModel(object) {
+    if (!object) {
+      return null;
+    }
+    return new AdvertSettings(object.autoDeactivateAt);
   }
 }

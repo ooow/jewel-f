@@ -2,26 +2,31 @@ import PropTypes from 'prop-types';
 
 export default class Contacts {
   static propTypes = {
-    phone: PropTypes.string,
-    person: PropTypes.string,
     userId: PropTypes.string,
     companyId: PropTypes.string,
     email: PropTypes.string,
+    person: PropTypes.string,
+    phone: PropTypes.string,
   };
 
-  constructor(phone, person, userId, companyId, email) {
-    this.phone = phone;
-    this.person = person;
+  constructor(userId, companyId, email, person, phone) {
     this.userId = userId;
     this.companyId = companyId;
     this.email = email;
+    this.person = person;
+    this.phone = phone;
   }
 
-  toString() {
-    return `phone: ${this.phone} 
-    person: ${this.person} 
-    userId: ${this.userId} 
-    companyId: ${this.companyId} 
-    email: ${this.email}`;
+  static toModel(object) {
+    if (!object) {
+      return null;
+    }
+    return new Contacts(
+      object.userId,
+      object.companyId,
+      object.email,
+      object.person,
+      object.phone,
+    );
   }
 }

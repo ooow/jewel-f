@@ -4,12 +4,12 @@ import {
   REQUEST_ADVERTS,
 } from '../actions/advert';
 import Advert from '../../models/Advert';
-import mockJsonArrayOfAds from '../../mockData/ads';
+import mockJsonArrayOfAds from '../../mock/ads';
 
 /** Initializes state using mock data from json file. */
 const initState = {
   isFetching: false,
-  items: mockJsonArrayOfAds.map(Advert.jsonToModel),
+  items: mockJsonArrayOfAds.map(Advert.toModel),
 };
 
 const adverts = (state = initState, action) => {

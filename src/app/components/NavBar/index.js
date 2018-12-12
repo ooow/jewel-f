@@ -6,7 +6,7 @@ import LanguageSelector from '../LanguageSelector';
 import Logo from '../Logo';
 import SearchBar from '../SearchBar';
 import SignInButton from '../SignInButton';
-import mockJsonArrayOfLanguages from '../../mockData/languages';
+import mockJsonArrayOfLanguages from '../../mock/languages';
 
 /**
  * A view component which displays a Navigation bar.

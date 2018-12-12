@@ -9,7 +9,10 @@ export default class Requirements {
     this.experience = experience;
   }
 
-  toString() {
-    return `experience: ${this.experience}`;
+  static toModel(object) {
+    if (!object) {
+      return null;
+    }
+    return new Requirements(object.experience);
   }
 }

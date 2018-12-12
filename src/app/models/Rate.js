@@ -2,21 +2,29 @@ import PropTypes from 'prop-types';
 
 export default class Rate {
   static propTypes = {
-    currency: PropTypes.string,
     fixedRate: PropTypes.number,
-    isContractual: PropTypes.bool,
     maxRate: PropTypes.number,
     minRate: PropTypes.number,
+    currency: PropTypes.string,
+    isContractual: PropTypes.bool,
   };
 
-  constructor(fixedRate, minRate, maxRate, isContractual, currency) {
+  constructor(fixedRate, maxRate, minRate, currency, isContractual) {
     this.fixedRate = fixedRate;
-    this.minRate = minRate;
     this.maxRate = maxRate;
-    this.isContractual = isContractual;
+    this.minRate = minRate;
     this.currency = currency;
+    this.isContractual = isContractual;
   }
 
+  /**
+   * Returns rate in string format.
+   *
+   * @example Fon each rate type:
+   *    Contractual => Empty string
+   *    Fixed => 200$
+   *    Range => 100-300$
+   */
   toString() {
     if (this.isContractual) {
       return '';
@@ -29,13 +37,16 @@ export default class Rate {
     return `${this.minRate}-${this.maxRate}${this.currency}`;
   }
 
-  static jsonToModel(jsonObject) {
+  static toModel(object) {
+    if (!object) {
+      return null;
+    }
     return new Rate(
-      jsonObject.fixedRate,
-      jsonObject.minRate,
-      jsonObject.maxRate,
-      jsonObject.isContractual,
-      jsonObject.currency,
+      object.fixedRate,
+      object.maxRate,
+      object.minRate,
+      object.currency,
+      object.isContractual,
     );
   }
 }
